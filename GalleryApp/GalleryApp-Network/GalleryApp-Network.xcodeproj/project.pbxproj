@@ -8,11 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		421163652C1B11FB00FC099D /* GalleryApp_Network.h in Headers */ = {isa = PBXBuildFile; fileRef = 421163642C1B11FB00FC099D /* GalleryApp_Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		421163E12C1B199A00FC099D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 421163E02C1B199A00FC099D /* CombineMoya */; };
+		421163E32C1B199A00FC099D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 421163E22C1B199A00FC099D /* Moya */; };
+		421163E52C1B1A0B00FC099D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163E42C1B1A0B00FC099D /* NetworkManager.swift */; };
+		421163E92C1B396600FC099D /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */; };
+		421163EB2C1B399100FC099D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EA2C1B399100FC099D /* Request.swift */; };
+		421163ED2C1B3A1A00FC099D /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */; };
+		421163F12C1B3AEE00FC099D /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163F02C1B3AEE00FC099D /* RouteBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		421163612C1B11FB00FC099D /* GalleryApp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421163642C1B11FB00FC099D /* GalleryApp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Network.h; sourceTree = "<group>"; };
+		421163E42C1B1A0B00FC099D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		421163EA2C1B399100FC099D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		421163F02C1B3AEE00FC099D /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -20,6 +32,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421163E32C1B199A00FC099D /* Moya in Frameworks */,
+				421163E12C1B199A00FC099D /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +76,29 @@
 		421163DE2C1B16C700FC099D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				421163EE2C1B3A6A00FC099D /* NetworkManager */,
+				421163EF2C1B3A8A00FC099D /* Request */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		421163EE2C1B3A6A00FC099D /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */,
+				421163E42C1B1A0B00FC099D /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		421163EF2C1B3A8A00FC099D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				421163EA2C1B399100FC099D /* Request.swift */,
+				421163F02C1B3AEE00FC099D /* RouteBuilder.swift */,
+				421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +129,10 @@
 			dependencies = (
 			);
 			name = "GalleryApp-Network";
+			packageProductDependencies = (
+				421163E02C1B199A00FC099D /* CombineMoya */,
+				421163E22C1B199A00FC099D /* Moya */,
+			);
 			productName = "GalleryApp-Network";
 			productReference = 421163612C1B11FB00FC099D /* GalleryApp_Network.framework */;
 			productType = "com.apple.product-type.framework";
@@ -109,6 +148,7 @@
 				TargetAttributes = {
 					421163602C1B11FB00FC099D = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -121,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 421163572C1B11FB00FC099D;
+			packageReferences = (
+				421163DF2C1B199A00FC099D /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 421163622C1B11FB00FC099D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,6 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421163E92C1B396600FC099D /* NetworkManagerProtocol.swift in Sources */,
+				421163EB2C1B399100FC099D /* Request.swift in Sources */,
+				421163F12C1B3AEE00FC099D /* RouteBuilder.swift in Sources */,
+				421163E52C1B1A0B00FC099D /* NetworkManager.swift in Sources */,
+				421163ED2C1B3A1A00FC099D /* BaseTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +327,8 @@
 		421163692C1B11FB00FC099D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -308,6 +357,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -316,7 +366,8 @@
 		4211636A2C1B11FB00FC099D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -372,6 +423,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		421163DF2C1B199A00FC099D /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		421163E02C1B199A00FC099D /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421163DF2C1B199A00FC099D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		421163E22C1B199A00FC099D /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421163DF2C1B199A00FC099D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 421163582C1B11FB00FC099D /* Project object */;
 }
