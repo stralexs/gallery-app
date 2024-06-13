@@ -15,6 +15,8 @@
 		421163EB2C1B399100FC099D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EA2C1B399100FC099D /* Request.swift */; };
 		421163ED2C1B3A1A00FC099D /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */; };
 		421163F12C1B3AEE00FC099D /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163F02C1B3AEE00FC099D /* RouteBuilder.swift */; };
+		421164022C1B401F00FC099D /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 421164012C1B401F00FC099D /* Factory */; };
+		421164052C1B407400FC099D /* Network+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421164042C1B407400FC099D /* Network+Injection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,7 @@
 		421163EA2C1B399100FC099D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		421163F02C1B3AEE00FC099D /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
+		421164042C1B407400FC099D /* Network+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Injection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421164022C1B401F00FC099D /* Factory in Frameworks */,
 				421163E32C1B199A00FC099D /* Moya in Frameworks */,
 				421163E12C1B199A00FC099D /* CombineMoya in Frameworks */,
 			);
@@ -59,6 +63,7 @@
 		421163632C1B11FB00FC099D /* GalleryApp-Network */ = {
 			isa = PBXGroup;
 			children = (
+				421164032C1B402A00FC099D /* DI */,
 				421163DE2C1B16C700FC099D /* Sources */,
 				421163DD2C1B16C000FC099D /* SupportingFiles */,
 			);
@@ -101,6 +106,14 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		421164032C1B402A00FC099D /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				421164042C1B407400FC099D /* Network+Injection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -132,6 +145,7 @@
 			packageProductDependencies = (
 				421163E02C1B199A00FC099D /* CombineMoya */,
 				421163E22C1B199A00FC099D /* Moya */,
+				421164012C1B401F00FC099D /* Factory */,
 			);
 			productName = "GalleryApp-Network";
 			productReference = 421163612C1B11FB00FC099D /* GalleryApp_Network.framework */;
@@ -163,6 +177,7 @@
 			mainGroup = 421163572C1B11FB00FC099D;
 			packageReferences = (
 				421163DF2C1B199A00FC099D /* XCRemoteSwiftPackageReference "Moya" */,
+				421164002C1B401F00FC099D /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = 421163622C1B11FB00FC099D /* Products */;
 			projectDirPath = "";
@@ -192,6 +207,7 @@
 				421163EB2C1B399100FC099D /* Request.swift in Sources */,
 				421163F12C1B3AEE00FC099D /* RouteBuilder.swift in Sources */,
 				421163E52C1B1A0B00FC099D /* NetworkManager.swift in Sources */,
+				421164052C1B407400FC099D /* Network+Injection.swift in Sources */,
 				421163ED2C1B3A1A00FC099D /* BaseTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +449,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		421164002C1B401F00FC099D /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -445,6 +469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 421163DF2C1B199A00FC099D /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		421164012C1B401F00FC099D /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421164002C1B401F00FC099D /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
