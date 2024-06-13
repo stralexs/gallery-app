@@ -14,11 +14,15 @@ public final class NetworkManager: NetworkManagerProtocol {
     
     // MARK: Properties
     private let provider: MoyaProvider<MultiTarget>
+    private let decoder: JSONDecoder
     
     // MARK: Initializer
     public init(
-        provider: MoyaProvider<MultiTarget> = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
+        provider: MoyaProvider<MultiTarget> = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]),
+        decoder: JSONDecoder = JSONDecoder()
     ) {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        self.decoder = decoder
         self.provider = provider
     }
     
@@ -26,7 +30,7 @@ public final class NetworkManager: NetworkManagerProtocol {
     public func request<T: Request>(_ targetType: T) -> AnyPublisher<T.ResponseType, MoyaError> {
         provider.requestPublisher(MultiTarget(targetType.target))
             .filterSuccessfulStatusCodes()
-            .map(T.ResponseType.self)
+            .map(T.ResponseType.self, using: decoder)
             .eraseToAnyPublisher()
     }
 }
