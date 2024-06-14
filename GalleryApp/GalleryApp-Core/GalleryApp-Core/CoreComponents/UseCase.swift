@@ -19,3 +19,10 @@ public protocol UseCase {
     @discardableResult
     func execute(request: Input) -> AnyPublisher<SuccessType, FailureType>
 }
+
+// MARK: - Default Implementation
+public extension UseCase where Input == Any? {
+    func execute() -> AnyPublisher<SuccessType, FailureType> {
+        execute(request: nil)
+    }
+}
