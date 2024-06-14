@@ -8,10 +8,10 @@
       location = "container:"
       name = "GalleryFeatures">
       <FileRef
-         location = "group:GalleryApp-ImageDescription/GalleryApp-ImageDescription.xcodeproj">
+         location = "group:GalleryApp-ImagesList/GalleryApp-ImagesList.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:GalleryApp-ImagesList/GalleryApp-ImagesList.xcodeproj">
+         location = "group:GalleryApp-ImageDescription/GalleryApp-ImageDescription.xcodeproj">
       </FileRef>
    </Group>
    <Group

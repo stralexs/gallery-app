@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423B5C872C1C3E27006FD859 /* GalleryApp_ImagesList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423B5C862C1C3E27006FD859 /* GalleryApp_ImagesList.framework */; };
+		423B5C8B2C1C3E39006FD859 /* GalleryApp_ImagesList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423B5C8A2C1C3E39006FD859 /* GalleryApp_ImagesList.framework */; };
 		42F2FBFE2C1AFE1C00A18502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2FBFD2C1AFE1C00A18502 /* AppDelegate.swift */; };
 		42F2FC002C1AFE1C00A18502 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2FBFF2C1AFE1C00A18502 /* SceneDelegate.swift */; };
-		42F2FC022C1AFE1C00A18502 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2FC012C1AFE1C00A18502 /* ViewController.swift */; };
 		42F2FC072C1AFE1D00A18502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F2FC062C1AFE1D00A18502 /* Assets.xcassets */; };
 		42F2FC0A2C1AFE1D00A18502 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 42F2FC092C1AFE1D00A18502 /* Base */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		423B5C862C1C3E27006FD859 /* GalleryApp_ImagesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_ImagesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		423B5C8A2C1C3E39006FD859 /* GalleryApp_ImagesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_ImagesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F2FBFA2C1AFE1C00A18502 /* GalleryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F2FBFD2C1AFE1C00A18502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42F2FBFF2C1AFE1C00A18502 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42F2FC012C1AFE1C00A18502 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		42F2FC062C1AFE1D00A18502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42F2FC092C1AFE1D00A18502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42F2FC0B2C1AFE1D00A18502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423B5C872C1C3E27006FD859 /* GalleryApp_ImagesList.framework in Frameworks */,
+				423B5C8B2C1C3E39006FD859 /* GalleryApp_ImagesList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,7 +42,6 @@
 		421163CF2C1B154100FC099D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				42F2FC012C1AFE1C00A18502 /* ViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -69,11 +72,21 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		423B5C852C1C3E27006FD859 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				423B5C8A2C1C3E39006FD859 /* GalleryApp_ImagesList.framework */,
+				423B5C862C1C3E27006FD859 /* GalleryApp_ImagesList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42F2FBF12C1AFE1C00A18502 = {
 			isa = PBXGroup;
 			children = (
 				42F2FBFC2C1AFE1C00A18502 /* GalleryApp */,
 				42F2FBFB2C1AFE1C00A18502 /* Products */,
+				423B5C852C1C3E27006FD859 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,7 +179,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42F2FC022C1AFE1C00A18502 /* ViewController.swift in Sources */,
 				42F2FBFE2C1AFE1C00A18502 /* AppDelegate.swift in Sources */,
 				42F2FC002C1AFE1C00A18502 /* SceneDelegate.swift in Sources */,
 			);
