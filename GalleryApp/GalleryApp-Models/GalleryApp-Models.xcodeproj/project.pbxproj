@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4201B58B2C1C54C500F815D4 /* imagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 423B5C942C1C5029006FD859 /* imagePlaceholder.png */; };
+		4201B5902C1C55A600F815D4 /* ImageSizeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211B9392C1C18C00053EABA /* ImageSizeURL.swift */; };
 		4211638D2C1B125900FC099D /* GalleryApp_Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 4211638C2C1B125900FC099D /* GalleryApp_Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		421164092C1B427A00FC099D /* ImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421164082C1B427A00FC099D /* ImageDTO.swift */; };
 		4211B9382C1C181E0053EABA /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211B9372C1C181E0053EABA /* Image.swift */; };
-		4211B93A2C1C18C00053EABA /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211B9392C1C18C00053EABA /* ImageSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +19,9 @@
 		4211638C2C1B125900FC099D /* GalleryApp_Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Models.h; sourceTree = "<group>"; };
 		421164082C1B427A00FC099D /* ImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDTO.swift; sourceTree = "<group>"; };
 		4211B9372C1C181E0053EABA /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		4211B9392C1C18C00053EABA /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
+		4211B9392C1C18C00053EABA /* ImageSizeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizeURL.swift; sourceTree = "<group>"; };
+		423B5C742C1C3366006FD859 /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		423B5C942C1C5029006FD859 /* imagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagePlaceholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			children = (
 				4211638B2C1B125900FC099D /* GalleryApp-Models */,
 				4211638A2C1B125900FC099D /* Products */,
+				423B5C732C1C3366006FD859 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				421163DA2C1B16A900FC099D /* Sources */,
+				423B5C8E2C1C438D006FD859 /* Resources */,
 				421163D92C1B16A000FC099D /* SupportingFiles */,
 			);
 			path = "GalleryApp-Models";
@@ -79,7 +84,7 @@
 			children = (
 				421164082C1B427A00FC099D /* ImageDTO.swift */,
 				4211B9372C1C181E0053EABA /* Image.swift */,
-				4211B9392C1C18C00053EABA /* ImageSize.swift */,
+				4211B9392C1C18C00053EABA /* ImageSizeURL.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -89,6 +94,22 @@
 			children = (
 			);
 			path = ImageDescription;
+			sourceTree = "<group>";
+		};
+		423B5C732C1C3366006FD859 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				423B5C742C1C3366006FD859 /* GalleryApp_Core.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		423B5C8E2C1C438D006FD859 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				423B5C942C1C5029006FD859 /* imagePlaceholder.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4201B58B2C1C54C500F815D4 /* imagePlaceholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				421164092C1B427A00FC099D /* ImageDTO.swift in Sources */,
-				4211B93A2C1C18C00053EABA /* ImageSize.swift in Sources */,
+				4201B5902C1C55A600F815D4 /* ImageSizeURL.swift in Sources */,
 				4211B9382C1C181E0053EABA /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

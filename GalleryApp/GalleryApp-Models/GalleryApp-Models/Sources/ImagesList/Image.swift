@@ -9,9 +9,26 @@ import Foundation
 
 // MARK: - Image
 public struct Image {
-    let id: String
-    let description: String
-    let createdAt: Date
-    let creatorName: String
-    let sizeURL: ImageSize
+    
+    // MARK: Properties
+    public let id: String
+    public let description: String
+    public let createdAt: String
+    public let creatorName: String
+    public let sizeURL: ImageSizeURL
+    
+    // MARK: Initializer
+    public init(
+        id: String,
+        description: String,
+        createdAt: String,
+        creatorName: String,
+        sizeURL: ImageSizeURL
+    ) {
+        self.id = id
+        self.description = description
+        self.createdAt = createdAt
+        self.creatorName = creatorName
+        self.sizeURL = sizeURL
+    }
 }

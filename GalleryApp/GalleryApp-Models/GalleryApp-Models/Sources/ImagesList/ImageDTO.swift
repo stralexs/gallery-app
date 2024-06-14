@@ -9,24 +9,24 @@ import Foundation
 
 // MARK: - ImageDTO
 public struct ImageDTO: Decodable {
-    let id: String
-    let altDescription: String
-    let createdAt: String
-    let user: User
-    let urls: ImageURL
+    public let id: String
+    public let altDescription: String
+    public let createdAt: String
+    public let user: User
+    public let urls: ImageURL
 }
 
 // MARK: - ImageURL
 public extension ImageDTO {
     struct ImageURL: Decodable {
-        let small: String
-        let full: String
+        public let small: String
+        public let full: String
     }
 }
 
 // MARK: - User
 public extension ImageDTO {
     struct User: Decodable {
-        let name: String
+        public let name: String
     }
 }
