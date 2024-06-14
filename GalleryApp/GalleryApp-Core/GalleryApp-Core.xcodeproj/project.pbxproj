@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		421163792C1B121200FC099D /* GalleryApp_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 421163782C1B121200FC099D /* GalleryApp_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4211B93D2C1C1A8F0053EABA /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211B93C2C1C1A8F0053EABA /* UseCase.swift */; };
+		423B5C6F2C1C28E2006FD859 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B5C6E2C1C28E2006FD859 /* Mapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		421163752C1B121200FC099D /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421163782C1B121200FC099D /* GalleryApp_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Core.h; sourceTree = "<group>"; };
 		4211B93C2C1C1A8F0053EABA /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		423B5C6E2C1C28E2006FD859 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		421163DC2C1B16BA00FC099D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				423B5C6D2C1C28DA006FD859 /* Mapper */,
 				4211B93B2C1C1A850053EABA /* UseCase */,
 			);
 			path = Sources;
@@ -75,6 +78,14 @@
 				4211B93C2C1C1A8F0053EABA /* UseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		423B5C6D2C1C28DA006FD859 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				423B5C6E2C1C28E2006FD859 /* Mapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423B5C6F2C1C28E2006FD859 /* Mapper.swift in Sources */,
 				4211B93D2C1C1A8F0053EABA /* UseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
