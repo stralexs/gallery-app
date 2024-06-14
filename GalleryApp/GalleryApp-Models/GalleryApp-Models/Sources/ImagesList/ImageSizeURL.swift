@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - ImageSizeURL
-public struct ImageSizeURL {
+public struct ImageSizeURL: Hashable {
     
     // MARK: Properties
     public let small: URL

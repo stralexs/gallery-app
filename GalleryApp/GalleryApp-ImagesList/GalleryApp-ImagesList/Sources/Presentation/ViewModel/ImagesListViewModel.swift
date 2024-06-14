@@ -32,7 +32,6 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     
     // MARK: Publishers
     private let imagesSubject = PassthroughSubject<[GalleryApp_Models.Image], Never>()
-    
     var images: AnyPublisher<[GalleryApp_Models.Image], Never> { imagesSubject.eraseToAnyPublisher() }
     
     // MARK: Properties
@@ -48,12 +47,12 @@ extension DefaultImagesListViewModel {
             .sink { completion in
                 switch completion {
                 case .finished:
-                    print()
+                    break
                 case .failure:
-                    print()
+                    print() // TODO: Logic with failure
                 }
-            } receiveValue: { _ in
-                
+            } receiveValue: { [unowned self] images in
+                self.imagesSubject.send(images)
             }
             .store(in: &subscriptions)
     }

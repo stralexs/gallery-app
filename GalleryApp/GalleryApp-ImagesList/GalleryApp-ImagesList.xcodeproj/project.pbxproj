@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4201B5932C1C59E900F815D4 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4201B5922C1C59E900F815D4 /* ImageCollectionViewCell.swift */; };
+		4201B5962C1C5A7200F815D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4201B5952C1C5A7200F815D4 /* SnapKit */; };
 		421163B52C1B135300FC099D /* GalleryApp_ImagesList.h in Headers */ = {isa = PBXBuildFile; fileRef = 421163B42C1B135300FC099D /* GalleryApp_ImagesList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		423B5C382C1C1C1A006FD859 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 423B5C372C1C1C1A006FD859 /* Factory */; };
 		423B5C462C1C1CCB006FD859 /* ImagesListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B5C452C1C1CCB006FD859 /* ImagesListDataSource.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4201B5922C1C59E900F815D4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		421163B12C1B135300FC099D /* GalleryApp_ImagesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_ImagesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421163B42C1B135300FC099D /* GalleryApp_ImagesList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_ImagesList.h; sourceTree = "<group>"; };
 		423B5C452C1C1CCB006FD859 /* ImagesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListDataSource.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				423B5C612C1C25E9006FD859 /* GalleryApp_Core.framework in Frameworks */,
+				4201B5962C1C5A7200F815D4 /* SnapKit in Frameworks */,
 				423B5C492C1C1D1B006FD859 /* CombineMoya in Frameworks */,
 				423B5C932C1C48B1006FD859 /* Kingfisher in Frameworks */,
 				423B5C382C1C1C1A006FD859 /* Factory in Frameworks */,
@@ -67,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4201B5912C1C59D000F815D4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4201B5922C1C59E900F815D4 /* ImageCollectionViewCell.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		421163A72C1B135300FC099D = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				423B5C812C1C3B0C006FD859 /* ImagesListViewController.swift */,
+				4201B5912C1C59D000F815D4 /* Helper */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +280,7 @@
 				423B5C482C1C1D1B006FD859 /* CombineMoya */,
 				423B5C4A2C1C1D1B006FD859 /* Moya */,
 				423B5C922C1C48B1006FD859 /* Kingfisher */,
+				4201B5952C1C5A7200F815D4 /* SnapKit */,
 			);
 			productName = "GalleryApp-ImagesList";
 			productReference = 421163B12C1B135300FC099D /* GalleryApp_ImagesList.framework */;
@@ -300,6 +314,7 @@
 				423B5C362C1C1C1A006FD859 /* XCRemoteSwiftPackageReference "Factory" */,
 				423B5C472C1C1D1B006FD859 /* XCRemoteSwiftPackageReference "Moya" */,
 				423B5C912C1C48B1006FD859 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4201B5942C1C5A7200F815D4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 421163B22C1B135300FC099D /* Products */;
 			projectDirPath = "";
@@ -337,6 +352,7 @@
 				423B5C682C1C276B006FD859 /* ImagesList+Injection.swift in Sources */,
 				423B5C652C1C270F006FD859 /* DefaultImagesListRepository.swift in Sources */,
 				423B5C462C1C1CCB006FD859 /* ImagesListDataSource.swift in Sources */,
+				4201B5932C1C59E900F815D4 /* ImageCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +585,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4201B5942C1C5A7200F815D4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		423B5C362C1C1C1A006FD859 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
@@ -596,6 +620,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4201B5952C1C5A7200F815D4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4201B5942C1C5A7200F815D4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		423B5C372C1C1C1A006FD859 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 423B5C362C1C1C1A006FD859 /* XCRemoteSwiftPackageReference "Factory" */;

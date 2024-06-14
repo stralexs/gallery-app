@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4201B59B2C1C5EF500F815D4 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4201B59A2C1C5EF500F815D4 /* NSObject+Extension.swift */; };
 		421163792C1B121200FC099D /* GalleryApp_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 421163782C1B121200FC099D /* GalleryApp_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4211B93D2C1C1A8F0053EABA /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211B93C2C1C1A8F0053EABA /* UseCase.swift */; };
 		423B5C6F2C1C28E2006FD859 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B5C6E2C1C28E2006FD859 /* Mapper.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4201B59A2C1C5EF500F815D4 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		421163752C1B121200FC099D /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421163782C1B121200FC099D /* GalleryApp_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Core.h; sourceTree = "<group>"; };
 		4211B93C2C1C1A8F0053EABA /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4201B5992C1C5EE700F815D4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4201B59A2C1C5EF500F815D4 /* NSObject+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4211636B2C1B121200FC099D = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 		421163772C1B121200FC099D /* GalleryApp-Core */ = {
 			isa = PBXGroup;
 			children = (
+				4201B5992C1C5EE700F815D4 /* Extensions */,
 				421163DC2C1B16BA00FC099D /* CoreComponents */,
 				421163DB2C1B16B300FC099D /* SupportingFiles */,
 			);
@@ -166,6 +177,7 @@
 				423B5C6F2C1C28E2006FD859 /* Mapper.swift in Sources */,
 				423B5C7C2C1C3932006FD859 /* Subscriptionable.swift in Sources */,
 				4211B93D2C1C1A8F0053EABA /* UseCase.swift in Sources */,
+				4201B59B2C1C5EF500F815D4 /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

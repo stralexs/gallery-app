@@ -32,3 +32,10 @@ public struct Image {
         self.sizeURL = sizeURL
     }
 }
+
+// MARK: - Hashable
+extension Image: Hashable {
+    public static func == (lhs: Image, rhs: Image) -> Bool {
+        lhs.id == rhs.id
+    }
+}
