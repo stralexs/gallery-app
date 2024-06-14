@@ -10,6 +10,5 @@ import Moya
 // MARK: - Request
 public protocol Request {
     associatedtype ResponseType: Decodable
-    associatedtype Target: BaseTargetType
-    var target: Target { get }
+    var target: MultiTarget { get }
 }

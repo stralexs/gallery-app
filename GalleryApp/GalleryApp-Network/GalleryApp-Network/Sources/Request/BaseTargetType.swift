@@ -12,11 +12,7 @@ public protocol BaseTargetType: TargetType {}
 
 // MARK: - Default implementation
 public extension BaseTargetType {
-    var baseURL: URL {
-        URL(string: RouteBuilder.baseURL)!
-    }
-    
     var headers: [String: String]? {
-        RouteBuilder.headers
+        GalleryHeaders.dictionary
     }
 }

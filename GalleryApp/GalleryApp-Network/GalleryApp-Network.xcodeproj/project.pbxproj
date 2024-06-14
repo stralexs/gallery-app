@@ -14,7 +14,7 @@
 		421163E92C1B396600FC099D /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */; };
 		421163EB2C1B399100FC099D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EA2C1B399100FC099D /* Request.swift */; };
 		421163ED2C1B3A1A00FC099D /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */; };
-		421163F12C1B3AEE00FC099D /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163F02C1B3AEE00FC099D /* RouteBuilder.swift */; };
+		421163F12C1B3AEE00FC099D /* GalleryHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163F02C1B3AEE00FC099D /* GalleryHeaders.swift */; };
 		421164022C1B401F00FC099D /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 421164012C1B401F00FC099D /* Factory */; };
 		421164052C1B407400FC099D /* Network+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421164042C1B407400FC099D /* Network+Injection.swift */; };
 /* End PBXBuildFile section */
@@ -26,7 +26,7 @@
 		421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		421163EA2C1B399100FC099D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
-		421163F02C1B3AEE00FC099D /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
+		421163F02C1B3AEE00FC099D /* GalleryHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryHeaders.swift; sourceTree = "<group>"; };
 		421164042C1B407400FC099D /* Network+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Injection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				421163EA2C1B399100FC099D /* Request.swift */,
-				421163F02C1B3AEE00FC099D /* RouteBuilder.swift */,
+				421163F02C1B3AEE00FC099D /* GalleryHeaders.swift */,
 				421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */,
 			);
 			path = Request;
@@ -205,7 +205,7 @@
 			files = (
 				421163E92C1B396600FC099D /* NetworkManagerProtocol.swift in Sources */,
 				421163EB2C1B399100FC099D /* Request.swift in Sources */,
-				421163F12C1B3AEE00FC099D /* RouteBuilder.swift in Sources */,
+				421163F12C1B3AEE00FC099D /* GalleryHeaders.swift in Sources */,
 				421163E52C1B1A0B00FC099D /* NetworkManager.swift in Sources */,
 				421164052C1B407400FC099D /* Network+Injection.swift in Sources */,
 				421163ED2C1B3A1A00FC099D /* BaseTargetType.swift in Sources */,
