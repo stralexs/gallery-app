@@ -27,8 +27,8 @@ public final class NetworkManager: NetworkManagerProtocol {
     }
     
     // MARK: Methods
-    public func request<T: Request>(_ targetType: T) -> AnyPublisher<T.ResponseType, MoyaError> {
-        provider.requestPublisher(MultiTarget(targetType.target))
+    public func request<T: Request>(_ service: T) -> AnyPublisher<T.ResponseType, MoyaError> {
+        provider.requestPublisher(MultiTarget(service.target))
             .filterSuccessfulStatusCodes()
             .map(T.ResponseType.self, using: decoder)
             .eraseToAnyPublisher()
