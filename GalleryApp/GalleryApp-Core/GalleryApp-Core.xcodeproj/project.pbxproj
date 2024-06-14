@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		421163792C1B121200FC099D /* GalleryApp_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 421163782C1B121200FC099D /* GalleryApp_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4211B93D2C1C1A8F0053EABA /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211B93C2C1C1A8F0053EABA /* UseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		421163752C1B121200FC099D /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421163782C1B121200FC099D /* GalleryApp_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Core.h; sourceTree = "<group>"; };
+		4211B93C2C1C1A8F0053EABA /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +64,17 @@
 		421163DC2C1B16BA00FC099D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4211B93B2C1C1A850053EABA /* UseCase */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		4211B93B2C1C1A850053EABA /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				4211B93C2C1C1A8F0053EABA /* UseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +120,7 @@
 				TargetAttributes = {
 					421163742C1B121200FC099D = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -145,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4211B93D2C1C1A8F0053EABA /* UseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +293,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -308,6 +322,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -317,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
