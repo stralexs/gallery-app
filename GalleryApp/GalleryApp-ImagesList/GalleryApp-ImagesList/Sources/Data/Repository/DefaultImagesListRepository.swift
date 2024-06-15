@@ -21,6 +21,7 @@ final class DefaultImagesListRepository {
     private var getImagesDTOToDomainMapper: GetImagesDTOToDomainMapper
 }
 
+// MARK: - ImagesListRepository
 extension DefaultImagesListRepository: ImagesListRepository {
     func getImages(requestDTO: Int) -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> {
         imagesListDataSource.getImages(requestDTO: requestDTO)
