@@ -75,28 +75,12 @@
 		421163DA2C1B16A900FC099D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				421164062C1B425300FC099D /* ImagesList */,
-				421164072C1B425A00FC099D /* ImageDescription */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		421164062C1B425300FC099D /* ImagesList */ = {
-			isa = PBXGroup;
-			children = (
 				421164082C1B427A00FC099D /* ImageDTO.swift */,
 				4211B9372C1C181E0053EABA /* Image.swift */,
 				4211B9392C1C18C00053EABA /* ImageSizeURL.swift */,
 				429759E52C1C9F8D001C0D03 /* LoadingState.swift */,
 			);
-			path = ImagesList;
-			sourceTree = "<group>";
-		};
-		421164072C1B425A00FC099D /* ImageDescription */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ImageDescription;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		423B5C732C1C3366006FD859 /* Frameworks */ = {

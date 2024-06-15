@@ -7,8 +7,7 @@
 
 import UIKit
 import SwiftUI
-import GalleryApp_ImagesList
-import GalleryApp_ImageDescription
+import GalleryApp_Features
 import GalleryApp_Models
 
 // MARK: - SceneDelegate
@@ -21,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-//        let viewController = ImagesListViewController()
-//        let navigation = UINavigationController(rootViewController: viewController)
-//        window?.rootViewController = navigation
+        let viewController = ImagesListViewController()
+        let navigation = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = navigation
 //        let hostingController = UIHostingController(rootView: ImageDescriptionView(viewModel: <#_#>, images: [
 //            GalleryApp_Models.Image(
 //                id: "CVbr5RR0yac",

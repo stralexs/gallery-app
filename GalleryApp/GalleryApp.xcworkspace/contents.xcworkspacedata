@@ -4,16 +4,9 @@
    <FileRef
       location = "group:GalleryApp/GalleryApp.xcodeproj">
    </FileRef>
-   <Group
-      location = "container:"
-      name = "GalleryFeatures">
-      <FileRef
-         location = "group:GalleryApp-ImagesList/GalleryApp-ImagesList.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:GalleryApp-ImageDescription/GalleryApp-ImageDescription.xcodeproj">
-      </FileRef>
-   </Group>
+   <FileRef
+      location = "group:GalleryApp-Features/GalleryApp-Features.xcodeproj">
+   </FileRef>
    <Group
       location = "container:"
       name = "GalleryCore">
