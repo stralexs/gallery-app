@@ -22,8 +22,8 @@ final class DefaultImagesListRepository {
 }
 
 extension DefaultImagesListRepository: ImagesListRepository {
-    func getImages() -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> {
-        imagesListDataSource.getImages()
+    func getImages(requestDTO: Int) -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> {
+        imagesListDataSource.getImages(requestDTO: requestDTO)
             .map { [weak self] imagesDTO in
                 guard let self else { return [] }
                 return self.getImagesDTOToDomainMapper.mapModel(imagesDTO)

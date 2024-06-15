@@ -10,5 +10,5 @@ import Moya
 
 // MARK: - ImagesListDataSource
 protocol ImagesListDataSource {
-    func getImages() -> AnyPublisher<GetImagesRequest.ResponseType, MoyaError>
+    func getImages(requestDTO: Int) -> AnyPublisher<GetImagesRequest.ResponseType, MoyaError>
 }

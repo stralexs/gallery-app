@@ -12,6 +12,7 @@
 		4211638D2C1B125900FC099D /* GalleryApp_Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 4211638C2C1B125900FC099D /* GalleryApp_Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		421164092C1B427A00FC099D /* ImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421164082C1B427A00FC099D /* ImageDTO.swift */; };
 		4211B9382C1C181E0053EABA /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211B9372C1C181E0053EABA /* Image.swift */; };
+		429759E62C1C9F8D001C0D03 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429759E52C1C9F8D001C0D03 /* LoadingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4211B9392C1C18C00053EABA /* ImageSizeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizeURL.swift; sourceTree = "<group>"; };
 		423B5C742C1C3366006FD859 /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423B5C942C1C5029006FD859 /* imagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagePlaceholder.png; sourceTree = "<group>"; };
+		429759E52C1C9F8D001C0D03 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				421164082C1B427A00FC099D /* ImageDTO.swift */,
 				4211B9372C1C181E0053EABA /* Image.swift */,
 				4211B9392C1C18C00053EABA /* ImageSizeURL.swift */,
+				429759E52C1C9F8D001C0D03 /* LoadingState.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429759E62C1C9F8D001C0D03 /* LoadingState.swift in Sources */,
 				421164092C1B427A00FC099D /* ImageDTO.swift in Sources */,
 				4201B5902C1C55A600F815D4 /* ImageSizeURL.swift in Sources */,
 				4211B9382C1C181E0053EABA /* Image.swift in Sources */,

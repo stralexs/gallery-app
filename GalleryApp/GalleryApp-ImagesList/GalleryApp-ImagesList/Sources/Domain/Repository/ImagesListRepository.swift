@@ -11,5 +11,5 @@ import GalleryApp_Models
 
 // MARK: - ImagesListRepository
 protocol ImagesListRepository {
-    func getImages() -> AnyPublisher<[GalleryApp_Models.Image], MoyaError>
+    func getImages(requestDTO: Int) -> AnyPublisher<[GalleryApp_Models.Image], MoyaError>
 }

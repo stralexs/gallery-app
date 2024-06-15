@@ -35,7 +35,8 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: Methods
     func configure(with url: URL) {
-        imageView.kf.setImage(with: url) { [unowned self] _ in
+        imageView.kf.setImage(with: url) { [weak self] _ in
+            guard let self else { return }
             self.spinIndicator(false)
         }
     }
@@ -51,6 +52,10 @@ private extension ImageCollectionViewCell {
     func setUpConstraints() {
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
     

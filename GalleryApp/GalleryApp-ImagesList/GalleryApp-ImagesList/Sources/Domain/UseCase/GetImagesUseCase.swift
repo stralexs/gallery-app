@@ -13,7 +13,7 @@ import GalleryApp_Models
 
 // MARK: - GetImagesUseCase
 protocol GetImagesUseCase: UseCase
-where Input == Any?,
+where Input == Int,
       SuccessType == [GalleryApp_Models.Image],
       FailureType == MoyaError {}
 
@@ -27,7 +27,7 @@ final class DefaultGetImagesUseCase {
 
 // MARK: - GetImagesUseCase
 extension DefaultGetImagesUseCase: GetImagesUseCase {
-    func execute(request: Any?) -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> {
-        imagesListRepository.getImages()
+    func execute(request: Int) -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> {
+        imagesListRepository.getImages(requestDTO: request)
     }
 }

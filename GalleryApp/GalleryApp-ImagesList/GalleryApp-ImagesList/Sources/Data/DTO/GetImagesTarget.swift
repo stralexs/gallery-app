@@ -10,7 +10,7 @@ import Moya
 
 // MARK: - GetImagesTarget
 enum GetImagesTarget {
-    case getImages
+    case getImages(page: Int)
 }
 
 // MARK: - BaseTargetType
@@ -28,7 +28,13 @@ extension GetImagesTarget: BaseTargetType {
     }
     
     var task: Moya.Task {
-        .requestPlain
+        switch self {
+        case .getImages(let page):
+            .requestParameters(
+                parameters: [Consts.countPerPage: 30, Consts.page: page],
+                encoding: URLEncoding.queryString
+            )
+        }
     }
 }
 
@@ -37,5 +43,7 @@ extension GetImagesTarget {
     enum Consts {
         static let baseURL = "https://api.unsplash.com/"
         static let path = "photos"
+        static let countPerPage = "per_page"
+        static let page = "page"
     }
 }

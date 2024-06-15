@@ -20,7 +20,7 @@ final class DefaultImagesListDataSource {
 
 // MARK: - ImagesListDataSource
 extension DefaultImagesListDataSource: ImagesListDataSource {
-    func getImages() -> AnyPublisher<GetImagesRequest.ResponseType, MoyaError> {
-        networkManager.request(GetImagesRequest(requestTarget: GetImagesTarget.getImages))
+    func getImages(requestDTO: Int) -> AnyPublisher<GetImagesRequest.ResponseType, MoyaError> {
+        networkManager.request(GetImagesRequest(requestTarget: GetImagesTarget.getImages(page: requestDTO)))
     }
 }
