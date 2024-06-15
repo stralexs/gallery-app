@@ -18,7 +18,7 @@ public final class NetworkManager: NetworkManagerProtocol {
     
     // MARK: Initializer
     public init(
-        provider: MoyaProvider<MultiTarget> = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]),
+        provider: MoyaProvider<MultiTarget> = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .default))]),
         decoder: JSONDecoder = JSONDecoder()
     ) {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
