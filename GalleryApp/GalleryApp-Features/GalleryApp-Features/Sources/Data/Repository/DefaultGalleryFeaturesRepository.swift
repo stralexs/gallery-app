@@ -31,4 +31,8 @@ extension DefaultGalleryFeaturesRepository: GalleryFeaturesRepository {
             }
             .eraseToAnyPublisher()
     }
+    
+    func getFavorites() -> AnyPublisher<[GalleryApp_Models.Image], CoreDataError> {
+        galleryFeaturesDataSource.getFavorites()
+    }
 }

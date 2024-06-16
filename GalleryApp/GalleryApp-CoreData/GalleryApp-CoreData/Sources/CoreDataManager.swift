@@ -5,6 +5,7 @@
 //  Created by Alexander Sivko on 16.06.24.
 //
 
+import Combine
 import CoreData
 import GalleryApp_Models
 import GalleryApp_Core
@@ -52,21 +53,35 @@ extension CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    public func fetchEntity<T: NSManagedObject>(_ entity: T.Type) -> Result<[T], CoreDataError> {
-        guard let request = T.fetchRequest() as? NSFetchRequest<T> else {
-            return .failure(.requestConversionError)
-        }
+    public func fetchEntity<T: NSManagedObject>(_ entity: T.Type) -> AnyPublisher<[T], CoreDataError> {
+        guard let request = T.fetchRequest() as? NSFetchRequest<T> 
+        else { return Fail(error: .requestConversionError).eraseToAnyPublisher() }
         
+        return Future<[T], CoreDataError> { [weak self] promise in
+            guard let self else { return }
+            do {
+                let results = try self.viewContext.fetch(request)
+                promise(.success(results))
+            } catch {
+                print("Failed to fetch \(entity) objects: \(error)")
+                promise(.failure(.fetchExecutionError))
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    public func deleteEntity<T: NSManagedObject>(_ entity: T) -> CoreDataError? {
+        viewContext.delete(entity)
         do {
-            let results = try viewContext.fetch(request)
-            return .success(results)
+            try viewContext.save()
+            return nil
         } catch {
-            print("Failed to fetch \(entity) objects: \(error)")
-            return .failure(.fetchExecutionError)
+            print("Error deleting object: \(error.localizedDescription)")
+            return .deleteExecutionError
         }
     }
     
-    public func deleteAllData() {
+    public func deleteAllData() -> CoreDataError? {
         let entities = persistentContainer.managedObjectModel.entities
         for entity in entities {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.name ?? .empty)
@@ -75,10 +90,13 @@ extension CoreDataManager: CoreDataManagerProtocol {
             do {
                 try viewContext.execute(deleteRequest)
                 try viewContext.save()
+                return nil
             } catch {
                 print("Error deleting \(entity.name!) objects: \(error.localizedDescription)")
+                return .deleteExecutionError
             }
         }
+        return nil
     }
 }
 

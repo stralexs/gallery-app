@@ -32,6 +32,9 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     @LazyInjected(\.galleryFeaturesContainer.getImagesUseCase)
     private var getImagesUseCase: any GetImagesUseCase
     
+    @LazyInjected(\.galleryFeaturesContainer.getUserFavoriteImagesUseCase)
+    private var getUserFavoriteImagesUseCase: any GetUserFavoriteImagesUseCase
+    
     // MARK: Publishers
     private let imagesSubject = CurrentValueSubject<LoadingState<[GalleryApp_Models.Image]>, Never>(.loading)
     private let isLoadingMoreDataSubject = CurrentValueSubject<Bool, Never>(false)

@@ -11,4 +11,5 @@ import Foundation
 public enum CoreDataError: Error {
     case requestConversionError
     case fetchExecutionError
+    case deleteExecutionError
 }

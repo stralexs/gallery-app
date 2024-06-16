@@ -28,6 +28,10 @@ extension GalleryFeaturesContainer {
         self { DefaultGetImagesUseCase() }
     }
     
+    var getUserFavoriteImagesUseCase: Factory<(any GetUserFavoriteImagesUseCase)> {
+        self { DefaultGetUserFavoriteImagesUseCase() }
+    }
+    
     var imagesListViewModel: Factory<(any ImagesListViewModel)> {
         self { DefaultImagesListViewModel() }
     }
