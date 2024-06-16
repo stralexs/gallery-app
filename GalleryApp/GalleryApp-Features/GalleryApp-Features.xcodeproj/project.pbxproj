@@ -32,6 +32,7 @@
 		42561F5F2C1DE2730059A333 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42561F422C1DE1500059A333 /* LoadingView.swift */; };
 		42561F602C1DE2760059A333 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42561F432C1DE1500059A333 /* LoadingFooterView.swift */; };
 		42561F612C1DE2790059A333 /* ImagesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42561F462C1DE1500059A333 /* ImagesListViewModel.swift */; };
+		427427552C1ECF36004364B1 /* GalleryApp_CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427427542C1ECF36004364B1 /* GalleryApp_CoreData.framework */; };
 		42EE837E2C1DE4D9004CC93C /* ImageDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE837D2C1DE4D9004CC93C /* ImageDescriptionViewModel.swift */; };
 		42EE83802C1DE4E1004CC93C /* ImageDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE837F2C1DE4E1004CC93C /* ImageDescriptionView.swift */; };
 		42EE83822C1DE4E6004CC93C /* SUIPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE83812C1DE4E6004CC93C /* SUIPageControl.swift */; };
@@ -59,6 +60,7 @@
 		42561F422C1DE1500059A333 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		42561F432C1DE1500059A333 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		42561F462C1DE1500059A333 /* ImagesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewModel.swift; sourceTree = "<group>"; };
+		427427542C1ECF36004364B1 /* GalleryApp_CoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_CoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42EE837D2C1DE4D9004CC93C /* ImageDescriptionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDescriptionViewModel.swift; path = "GalleryApp-Features/Sources/Presentation/ImageDescription/ViewModel/ImageDescriptionViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		42EE837F2C1DE4E1004CC93C /* ImageDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDescriptionView.swift; path = "GalleryApp-Features/Sources/Presentation/ImageDescription/View/ImageDescriptionView.swift"; sourceTree = SOURCE_ROOT; };
 		42EE83812C1DE4E6004CC93C /* SUIPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUIPageControl.swift; path = "GalleryApp-Features/Sources/Presentation/ImageDescription/View/Helper/SUIPageControl.swift"; sourceTree = SOURCE_ROOT; };
@@ -76,6 +78,7 @@
 				42561F162C1DE0F00059A333 /* Moya in Frameworks */,
 				42561F142C1DE0F00059A333 /* CombineMoya in Frameworks */,
 				42561F262C1DE1200059A333 /* GalleryApp_Models.framework in Frameworks */,
+				427427552C1ECF36004364B1 /* GalleryApp_CoreData.framework in Frameworks */,
 				42561F1F2C1DE1060059A333 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +115,7 @@
 		42561F202C1DE1190059A333 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				427427542C1ECF36004364B1 /* GalleryApp_CoreData.framework */,
 				42561F282C1DE1250059A333 /* GalleryApp_Network.framework */,
 				42561F252C1DE1200059A333 /* GalleryApp_Models.framework */,
 				42561F212C1DE1190059A333 /* GalleryApp_Core.framework */,
@@ -287,7 +291,6 @@
 				42EE837C2C1DE4C5004CC93C /* Helper */,
 			);
 			name = View;
-			path = "../../../../../GalleryApp-ImageDescription/GalleryApp-ImageDescription/Sources/Presentation/View";
 			sourceTree = "<group>";
 		};
 		42EE837A2C1DE4B6004CC93C /* ViewModel */ = {
@@ -296,7 +299,6 @@
 				42EE837D2C1DE4D9004CC93C /* ImageDescriptionViewModel.swift */,
 			);
 			name = ViewModel;
-			path = "../../../../../GalleryApp-ImageDescription/GalleryApp-ImageDescription/Sources/Presentation/View/ViewModel";
 			sourceTree = "<group>";
 		};
 		42EE837C2C1DE4C5004CC93C /* Helper */ = {
@@ -304,7 +306,7 @@
 			children = (
 				42EE83812C1DE4E6004CC93C /* SUIPageControl.swift */,
 			);
-			path = Helper;
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

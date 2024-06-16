@@ -38,7 +38,7 @@ public final class ImagesListViewController: UICollectionViewController, ViewCon
                 withReuseIdentifier: ImageCollectionViewCell.className,
                 for: indexPath) as? ImageCollectionViewCell
             else { return UICollectionViewCell() }
-            cell.configure(with: model.sizeURL.small)
+            cell.configure(with: model.imageSize.small.toURL())
             return cell
         }
         

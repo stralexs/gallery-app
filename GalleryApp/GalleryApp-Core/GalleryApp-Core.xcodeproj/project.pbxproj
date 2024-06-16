@@ -14,6 +14,9 @@
 		423B5C7C2C1C3932006FD859 /* Subscriptionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B5C7B2C1C3932006FD859 /* Subscriptionable.swift */; };
 		423B5C7E2C1C396A006FD859 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B5C7D2C1C396A006FD859 /* ViewModel.swift */; };
 		423B5C842C1C3B92006FD859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B5C832C1C3B92006FD859 /* ViewController.swift */; };
+		4274274B2C1ECD01004364B1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274274A2C1ECD01004364B1 /* String+Extension.swift */; };
+		427427532C1ECECB004364B1 /* imagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 427427522C1ECECB004364B1 /* imagePlaceholder.png */; };
+		427427632C1ED960004364B1 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427427622C1ED960004364B1 /* Bundle+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		423B5C7B2C1C3932006FD859 /* Subscriptionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptionable.swift; sourceTree = "<group>"; };
 		423B5C7D2C1C396A006FD859 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		423B5C832C1C3B92006FD859 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4274274A2C1ECD01004364B1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		427427522C1ECECB004364B1 /* imagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagePlaceholder.png; sourceTree = "<group>"; };
+		427427622C1ED960004364B1 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,8 @@
 			isa = PBXGroup;
 			children = (
 				4201B59A2C1C5EF500F815D4 /* NSObject+Extension.swift */,
+				427427622C1ED960004364B1 /* Bundle+Extension.swift */,
+				4274274A2C1ECD01004364B1 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -65,8 +73,8 @@
 		421163772C1B121200FC099D /* GalleryApp-Core */ = {
 			isa = PBXGroup;
 			children = (
-				4201B5992C1C5EE700F815D4 /* Extensions */,
-				421163DC2C1B16BA00FC099D /* CoreComponents */,
+				427427502C1ECEA9004364B1 /* Sources */,
+				427427512C1ECEBA004364B1 /* Resources */,
 				421163DB2C1B16B300FC099D /* SupportingFiles */,
 			);
 			path = "GalleryApp-Core";
@@ -90,6 +98,23 @@
 				423B5C6E2C1C28E2006FD859 /* Mapper.swift */,
 			);
 			path = CoreComponents;
+			sourceTree = "<group>";
+		};
+		427427502C1ECEA9004364B1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4201B5992C1C5EE700F815D4 /* Extensions */,
+				421163DC2C1B16BA00FC099D /* CoreComponents */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		427427512C1ECEBA004364B1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				427427522C1ECECB004364B1 /* imagePlaceholder.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				427427532C1ECECB004364B1 /* imagePlaceholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				423B5C842C1C3B92006FD859 /* ViewController.swift in Sources */,
+				4274274B2C1ECD01004364B1 /* String+Extension.swift in Sources */,
 				423B5C7E2C1C396A006FD859 /* ViewModel.swift in Sources */,
+				427427632C1ED960004364B1 /* Bundle+Extension.swift in Sources */,
 				423B5C6F2C1C28E2006FD859 /* Mapper.swift in Sources */,
 				423B5C7C2C1C3932006FD859 /* Subscriptionable.swift in Sources */,
 				4211B93D2C1C1A8F0053EABA /* UseCase.swift in Sources */,

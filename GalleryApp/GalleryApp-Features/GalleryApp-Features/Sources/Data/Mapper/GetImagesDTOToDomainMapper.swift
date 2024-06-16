@@ -5,23 +5,38 @@
 //  Created by Alexander Sivko on 14.06.24.
 //
 
+import Factory
 import GalleryApp_Core
 import GalleryApp_Models
+import GalleryApp_CoreData
 
 // MARK: - GetImagesDTOToDomainMapper
-final class GetImagesDTOToDomainMapper: Mapper {
+final class GetImagesDTOToDomainMapper {
+    
+    // MARK: Injected
+    @LazyInjected(\.coreDataManager)
+    private var coreDataManager: CoreDataManagerProtocol
+}
+
+// MARK: - Mapper
+extension GetImagesDTOToDomainMapper: Mapper {
     func mapModel(_ model: [ImageDTO]) -> [GalleryApp_Models.Image] {
-        model.map {
-            GalleryApp_Models.Image(
-                id: $0.id,
-                description: $0.altDescription,
-                createdAt: formatDate($0.createdAt),
-                creatorName: $0.user.name,
-                sizeURL: ImageSizeURL(
-                    small: $0.urls.small,
-                    full:$0.urls.full
-                )
+        model.map { imageDTO in
+            let imageSize = ImageSize(
+                full: imageDTO.urls.full,
+                small: imageDTO.urls.small,
+                context: coreDataManager.viewContext
             )
+            let image = GalleryApp_Models.Image(
+                id: imageDTO.id,
+                fullDescription: imageDTO.altDescription,
+                createdAt: formatDate(imageDTO.createdAt),
+                creatorName: imageDTO.user.name,
+                imageSize: imageSize,
+                context: coreDataManager.viewContext
+            )
+            imageSize.image = image
+            return image
         }
     }
 }

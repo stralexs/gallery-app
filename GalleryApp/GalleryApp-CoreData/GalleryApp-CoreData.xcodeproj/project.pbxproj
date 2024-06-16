@@ -8,11 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		421163A12C1B129100FC099D /* GalleryApp_CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 421163A02C1B129100FC099D /* GalleryApp_CoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		427427352C1EC9BC004364B1 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427427342C1EC9BC004364B1 /* CoreDataManagerProtocol.swift */; };
+		427427382C1EC9CE004364B1 /* GalleryApp_Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427427372C1EC9CE004364B1 /* GalleryApp_Models.framework */; };
+		4274273C2C1ECA08004364B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274273B2C1ECA08004364B1 /* CoreDataManager.swift */; };
+		4274273F2C1ECA48004364B1 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 4274273E2C1ECA48004364B1 /* Factory */; };
+		427427422C1ECA64004364B1 /* CoreData+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427427412C1ECA64004364B1 /* CoreData+Injection.swift */; };
+		4274274D2C1ECD2C004364B1 /* GalleryApp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274274C2C1ECD2C004364B1 /* GalleryApp_Core.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4211639D2C1B129100FC099D /* GalleryApp_CoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_CoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421163A02C1B129100FC099D /* GalleryApp_CoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_CoreData.h; sourceTree = "<group>"; };
+		427427342C1EC9BC004364B1 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
+		427427372C1EC9CE004364B1 /* GalleryApp_Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4274273B2C1ECA08004364B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		427427412C1ECA64004364B1 /* CoreData+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Injection.swift"; sourceTree = "<group>"; };
+		4274274C2C1ECD2C004364B1 /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -20,6 +31,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4274274D2C1ECD2C004364B1 /* GalleryApp_Core.framework in Frameworks */,
+				427427382C1EC9CE004364B1 /* GalleryApp_Models.framework in Frameworks */,
+				4274273F2C1ECA48004364B1 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -31,6 +45,7 @@
 			children = (
 				4211639F2C1B129100FC099D /* GalleryApp-CoreData */,
 				4211639E2C1B129100FC099D /* Products */,
+				427427362C1EC9CE004364B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -45,6 +60,7 @@
 		4211639F2C1B129100FC099D /* GalleryApp-CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				427427402C1ECA54004364B1 /* DI */,
 				421163D82C1B169A00FC099D /* Sources */,
 				421163D72C1B169000FC099D /* SupportingFiles */,
 			);
@@ -62,8 +78,27 @@
 		421163D82C1B169A00FC099D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				427427342C1EC9BC004364B1 /* CoreDataManagerProtocol.swift */,
+				4274273B2C1ECA08004364B1 /* CoreDataManager.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		427427362C1EC9CE004364B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4274274C2C1ECD2C004364B1 /* GalleryApp_Core.framework */,
+				427427372C1EC9CE004364B1 /* GalleryApp_Models.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		427427402C1ECA54004364B1 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				427427412C1ECA64004364B1 /* CoreData+Injection.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +129,9 @@
 			dependencies = (
 			);
 			name = "GalleryApp-CoreData";
+			packageProductDependencies = (
+				4274273E2C1ECA48004364B1 /* Factory */,
+			);
 			productName = "GalleryApp-CoreData";
 			productReference = 4211639D2C1B129100FC099D /* GalleryApp_CoreData.framework */;
 			productType = "com.apple.product-type.framework";
@@ -109,6 +147,7 @@
 				TargetAttributes = {
 					4211639C2C1B129100FC099D = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -121,6 +160,9 @@
 				Base,
 			);
 			mainGroup = 421163932C1B129100FC099D;
+			packageReferences = (
+				4274273D2C1ECA48004364B1 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = 4211639E2C1B129100FC099D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,6 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4274273C2C1ECA08004364B1 /* CoreDataManager.swift in Sources */,
+				427427352C1EC9BC004364B1 /* CoreDataManagerProtocol.swift in Sources */,
+				427427422C1ECA64004364B1 /* CoreData+Injection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +324,8 @@
 		421163A52C1B129100FC099D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -308,6 +354,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -316,7 +363,8 @@
 		421163A62C1B129100FC099D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -372,6 +420,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4274273D2C1ECA48004364B1 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4274273E2C1ECA48004364B1 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4274273D2C1ECA48004364B1 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 421163942C1B129100FC099D /* Project object */;
 }

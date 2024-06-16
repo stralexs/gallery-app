@@ -28,5 +28,5 @@ public protocol ViewModelOutput {
 }
 
 public extension ViewModelOutput {
-    var viewTitle: String { "" }
+    var viewTitle: String { .empty }
 }
