@@ -47,4 +47,8 @@ extension GalleryFeaturesContainer {
     var getImagesDTOToDomainMapper: Factory<GetImagesDTOToDomainMapper> {
         self { GetImagesDTOToDomainMapper() }
     }
+    
+    var imageCollectionViewCellViewModel: Factory<ImageCollectionViewCellViewModel> {
+        self { DefaultImageCollectionViewCellViewModel() }.cached
+    }
 }

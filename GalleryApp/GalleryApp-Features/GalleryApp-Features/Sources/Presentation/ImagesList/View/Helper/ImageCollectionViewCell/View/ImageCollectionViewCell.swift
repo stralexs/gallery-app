@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import GalleryApp_Models
+import Factory
 
 // MARK: - ImageCollectionViewCell
 final class ImageCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: Injected
+    @LazyInjected(\.galleryFeaturesContainer.imageCollectionViewCellViewModel)
+    private var viewModel: ImageCollectionViewCellViewModel
     
     // MARK: Properties
     private let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -19,6 +25,17 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         return imageView
+    }()
+    
+    private lazy var isFavoriteButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: Consts.heartImageName)
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.contentHorizontalAlignment = .fill
+        button.contentVerticalAlignment = .fill
+        button.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)
+        return button
     }()
     
     // MARK: Initializer
@@ -34,8 +51,10 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: Methods
-    func configure(with url: URL) {
-        imageView.kf.setImage(with: url) { [weak self] _ in
+    func configure(with image: GalleryApp_Models.Image) {
+//        viewModel.set(image)
+        isFavoriteButton.tintColor = image.isFavorite ? .red : .white
+        imageView.kf.setImage(with: image.imageSize.small.toURL()) { [weak self] _ in
             guard let self else { return }
             self.spinIndicator(false)
         }
@@ -44,8 +63,13 @@ final class ImageCollectionViewCell: UICollectionViewCell {
 
 // MARK: - Private
 private extension ImageCollectionViewCell {
+    @objc private func toggleFavorite() {
+        print("Hello")
+//        viewModel.toggleIsFavorite()
+    }
+    
     func setUpHierarchy() {
-        [activityIndicator, imageView].forEach { contentView.addSubview($0) }
+        [activityIndicator, imageView, isFavoriteButton].forEach { contentView.addSubview($0) }
         contentView.clipsToBounds = true
     }
     
@@ -57,6 +81,12 @@ private extension ImageCollectionViewCell {
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        
+        isFavoriteButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(5)
+            make.trailing.equalToSuperview().inset(5)
+            make.height.width.equalTo(25)
+        }
     }
     
     func spinIndicator(_ isLoading: Bool) {
@@ -67,5 +97,12 @@ private extension ImageCollectionViewCell {
             self.activityIndicator.stopAnimating()
             self.imageView.isHidden = false
         }
+    }
+}
+
+// MARK: - Consts
+private extension ImageCollectionViewCell {
+    enum Consts {
+        static let heartImageName = "heart.fill"
     }
 }

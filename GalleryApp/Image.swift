@@ -9,7 +9,7 @@
 import CoreData
 
 // MARK: - Image
-public class Image: NSManagedObject, Identifiable {
+public final class Image: NSManagedObject, Identifiable {
     
     // MARK: Properties
     @NSManaged public private(set) var id: String

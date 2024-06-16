@@ -19,7 +19,6 @@ final class DefaultGalleryFeaturesDataSource {
     @LazyInjected(\.networkManager)
     private var networkManager: NetworkManagerProtocol
     
-    // MARK: Injected
     @LazyInjected(\.coreDataManager)
     private var coreDataManager: CoreDataManagerProtocol
 }

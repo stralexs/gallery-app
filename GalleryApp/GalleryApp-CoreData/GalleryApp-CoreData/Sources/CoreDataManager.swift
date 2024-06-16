@@ -39,7 +39,7 @@ public final class CoreDataManager {
     public init() {}
 }
 
-// MARK: - CoreDataManagerInterface
+// MARK: - CoreDataManagerProtocol
 extension CoreDataManager: CoreDataManagerProtocol {
     public func saveContext() {
         viewContext.performAndWait {

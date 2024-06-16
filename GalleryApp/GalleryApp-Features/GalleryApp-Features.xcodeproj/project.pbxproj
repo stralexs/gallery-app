@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421A55902C1F03E40048AD61 /* ImageCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A558F2C1F03E40048AD61 /* ImageCollectionViewCellViewModel.swift */; };
 		42561F0C2C1DE0AB0059A333 /* GalleryApp_Features.h in Headers */ = {isa = PBXBuildFile; fileRef = 42561F0B2C1DE0AB0059A333 /* GalleryApp_Features.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42561F142C1DE0F00059A333 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 42561F132C1DE0F00059A333 /* CombineMoya */; };
 		42561F162C1DE0F00059A333 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 42561F152C1DE0F00059A333 /* Moya */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		421A558F2C1F03E40048AD61 /* ImageCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		42561F082C1DE0AB0059A333 /* GalleryApp_Features.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_Features.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42561F0B2C1DE0AB0059A333 /* GalleryApp_Features.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Features.h; sourceTree = "<group>"; };
 		42561F212C1DE1190059A333 /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421A558C2C1F039B0048AD61 /* ImageCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				421A558D2C1F039F0048AD61 /* View */,
+				421A558E2C1F03A30048AD61 /* ViewModel */,
+			);
+			path = ImageCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		421A558D2C1F039F0048AD61 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42561F402C1DE1500059A333 /* ImageCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		421A558E2C1F03A30048AD61 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				421A558F2C1F03E40048AD61 /* ImageCollectionViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		42561EFE2C1DE0AB0059A333 = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +243,7 @@
 		42561F442C1DE1500059A333 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				42561F402C1DE1500059A333 /* ImageCollectionViewCell.swift */,
+				421A558C2C1F039B0048AD61 /* ImageCollectionViewCell */,
 				42561F412C1DE1500059A333 /* ErrorView.swift */,
 				42561F422C1DE1500059A333 /* LoadingView.swift */,
 				42561F432C1DE1500059A333 /* LoadingFooterView.swift */,
@@ -422,6 +449,7 @@
 				42561F522C1DE2510059A333 /* GalleryFeaturesDataSource.swift in Sources */,
 				42561F542C1DE2570059A333 /* GetImagesRequest.swift in Sources */,
 				42561F582C1DE2620059A333 /* GalleryFeaturesRepository.swift in Sources */,
+				421A55902C1F03E40048AD61 /* ImageCollectionViewCellViewModel.swift in Sources */,
 				42561F5E2C1DE2700059A333 /* ErrorView.swift in Sources */,
 				42561F572C1DE25F0059A333 /* DefaultGalleryFeaturesRepository.swift in Sources */,
 			);
