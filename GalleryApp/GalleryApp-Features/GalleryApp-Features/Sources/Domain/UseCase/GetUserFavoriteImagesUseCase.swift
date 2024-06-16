@@ -27,6 +27,6 @@ final class DefaultGetUserFavoriteImagesUseCase {
 // MARK: - GetUserFavoriteImagesUseCase
 extension DefaultGetUserFavoriteImagesUseCase: GetUserFavoriteImagesUseCase {
     func execute(request: Int) -> AnyPublisher<[GalleryApp_Models.Image], CoreDataError> {
-        galleryFeaturesRepository.getImages(requestDTO: request)
+        galleryFeaturesRepository.getFavorites()
     }
 }
