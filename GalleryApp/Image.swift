@@ -1,5 +1,5 @@
 //
-//  Image.swift
+//  Image+CoreDataClass.swift
 //  GalleryApp-Models
 //
 //  Created by Alexander Sivko on 16.06.24.
@@ -9,7 +9,7 @@
 import CoreData
 
 // MARK: - Image
-public final class Image: NSManagedObject, Identifiable {
+public class Image: NSManagedObject, Identifiable {
     
     // MARK: Properties
     @NSManaged public private(set) var id: String
@@ -17,6 +17,7 @@ public final class Image: NSManagedObject, Identifiable {
     @NSManaged public private(set) var createdAt: String
     @NSManaged public private(set) var creatorName: String
     @NSManaged public private(set) var imageSize: ImageSize
+    @NSManaged public var isFavorite: Bool
     
     // MARK: Initializer
     public init(
@@ -25,6 +26,7 @@ public final class Image: NSManagedObject, Identifiable {
         createdAt: String,
         creatorName: String,
         imageSize: ImageSize,
+        isFavorite: Bool,
         context: NSManagedObjectContext
     ) {
         let entity = NSEntityDescription.entity(forEntityName: Consts.entityName, in: context)!
@@ -34,6 +36,7 @@ public final class Image: NSManagedObject, Identifiable {
         self.createdAt = createdAt
         self.creatorName = creatorName
         self.imageSize = imageSize
+        self.isFavorite = isFavorite
     }
     
     @available(*, unavailable)

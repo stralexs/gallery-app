@@ -33,6 +33,7 @@ extension GetImagesDTOToDomainMapper: Mapper {
                 createdAt: formatDate(imageDTO.createdAt),
                 creatorName: imageDTO.user.name,
                 imageSize: imageSize,
+                isFavorite: false,
                 context: coreDataManager.viewContext
             )
             imageSize.image = image

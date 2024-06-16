@@ -9,7 +9,7 @@
 import CoreData
 
 // MARK: - ImageSize
-public final class ImageSize: NSManagedObject, Identifiable {
+public class ImageSize: NSManagedObject, Identifiable {
     
     // MARK: Properties
     @NSManaged public private(set) var full: String

@@ -165,6 +165,7 @@ import GalleryApp_CoreData
         createdAt: "06 11 2024",
         creatorName: "Julie Guzal",
         imageSize: imageSize1,
+        isFavorite: false,
         context: coreDataManager.viewContext)
     imageSize1.image = image1
     
@@ -179,6 +180,7 @@ import GalleryApp_CoreData
         createdAt: "14 06 2024",
         creatorName: "Michael Pointner",
         imageSize: imageSize2,
+        isFavorite: false,
         context: coreDataManager.viewContext
     )
     imageSize2.image = image2

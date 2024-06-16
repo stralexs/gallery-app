@@ -5,6 +5,7 @@
         <attribute name="creatorName" attributeType="String"/>
         <attribute name="fullDescription" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
+        <attribute name="isFavorite" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="imageSize" maxCount="1" deletionRule="Nullify" destinationEntity="ImageSize" inverseName="image" inverseEntity="ImageSize"/>
     </entity>
     <entity name="ImageSize" representedClassName=".ImageSize" syncable="YES">
