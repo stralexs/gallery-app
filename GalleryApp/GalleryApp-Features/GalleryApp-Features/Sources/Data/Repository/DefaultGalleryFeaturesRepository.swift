@@ -35,4 +35,12 @@ extension DefaultGalleryFeaturesRepository: GalleryFeaturesRepository {
     func getFavorites() -> AnyPublisher<[FavoriteImage], CoreDataError> {
         galleryFeaturesDataSource.getFavorites()
     }
+    
+    func addToFavorites(requestDTO: GalleryApp_Models.Image) -> AnyPublisher<Void, CoreDataError> {
+        galleryFeaturesDataSource.addToFavorites(requestDTO: requestDTO)
+    }
+    
+    func removeFromFavorites(requestDTO: FavoriteImage) -> AnyPublisher<Void, CoreDataError> {
+        galleryFeaturesDataSource.removeFromFavorites(requestDTO: requestDTO)
+    }
 }

@@ -53,7 +53,7 @@ extension DefaultImagesListViewModel {
     func getImages() {
         imagesSubject.send(.loading)
         getUserFavoriteImagesUseCase
-            .execute()
+            .execute(request: ())
             .mapError { [unowned self] error in
                 imagesSubject.send(.failed)
                 return MoyaError.underlying(error, nil)
@@ -81,7 +81,7 @@ extension DefaultImagesListViewModel {
         pagesCounter += 1
         isLoadingMoreDataSubject.send(true)
         getUserFavoriteImagesUseCase
-            .execute()
+            .execute(request: ())
             .mapError { [unowned self] error in
                 imagesSubject.send(.failed)
                 return MoyaError.underlying(error, nil)

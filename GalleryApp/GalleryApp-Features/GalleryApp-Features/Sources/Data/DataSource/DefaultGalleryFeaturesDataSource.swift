@@ -32,4 +32,18 @@ extension DefaultGalleryFeaturesDataSource: GalleryFeaturesDataSource {
     func getFavorites() -> AnyPublisher<[FavoriteImage], CoreDataError> {
         coreDataManager.fetchEntity(FavoriteImage.self)
     }
+    
+    func addToFavorites(requestDTO: GalleryApp_Models.Image) -> AnyPublisher<Void, CoreDataError> {
+        let _ = FavoriteImage(
+            id: requestDTO.id,
+            fullSizeURLString: requestDTO.sizeURL.full.absoluteString,
+            context: coreDataManager.viewContext
+        )
+        return coreDataManager.saveContext()
+            .eraseToAnyPublisher()
+    }
+    
+    func removeFromFavorites(requestDTO: FavoriteImage) -> AnyPublisher<Void, CoreDataError> {
+        coreDataManager.deleteEntity(requestDTO)
+    }
 }

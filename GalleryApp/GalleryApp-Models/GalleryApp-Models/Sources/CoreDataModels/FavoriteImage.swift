@@ -31,10 +31,9 @@ public final class FavoriteImage: NSManagedObject, Identifiable {
     public init() {
         fatalError("\(#function) not implemented")
     }
-
-    @available(*, unavailable)
-    public init(context: NSManagedObjectContext) {
-        fatalError("\(#function) not implemented")
+    
+    override public init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
     // MARK: Methods
@@ -46,6 +45,6 @@ public final class FavoriteImage: NSManagedObject, Identifiable {
 // MARK: - Consts
 private extension FavoriteImage {
     enum Consts {
-        static let entityName = "ImageSize"
+        static let entityName = "FavoriteImage"
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - CoreDataError
 public enum CoreDataError: Error {
+    case saveExecutionError
     case requestConversionError
     case fetchExecutionError
     case deleteExecutionError

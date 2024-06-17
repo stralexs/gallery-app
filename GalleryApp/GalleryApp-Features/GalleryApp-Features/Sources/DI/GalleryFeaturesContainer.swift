@@ -24,31 +24,44 @@ final class GalleryFeaturesContainer: SharedContainer {
 
 // MARK: - Services
 extension GalleryFeaturesContainer {
-    var getImagesUseCase: Factory<(any GetImagesUseCase)> {
+    // MARK: Use case
+    var getImagesUseCase: Factory<any GetImagesUseCase> {
         self { DefaultGetImagesUseCase() }
     }
     
-    var getUserFavoriteImagesUseCase: Factory<(any GetUserFavoriteImagesUseCase)> {
+    var getUserFavoriteImagesUseCase: Factory<any GetUserFavoriteImagesUseCase> {
         self { DefaultGetUserFavoriteImagesUseCase() }
     }
     
-    var imagesListViewModel: Factory<(any ImagesListViewModel)> {
+    var addToFavoritesUseCase: Factory<any AddToFavoritesUseCase> {
+        self { DefaultAddToFavoritesUseCase() }
+    }
+    
+    var removeFromFavoritesUseCase: Factory<any RemoveFromFavoritesUseCase> {
+        self { DefaultRemoveFromFavoritesUseCase() }
+    }
+    
+    // MARK: ViewModel
+    var imagesListViewModel: Factory<any ImagesListViewModel> {
         self { DefaultImagesListViewModel() }
     }
     
+    var imageCollectionViewCellViewModel: Factory<any ImageCollectionViewCellViewModel> {
+        self { DefaultImageCollectionViewCellViewModel() }
+    }
+    
+    // MARK: Repository
     var galleryFeaturesRepository: Factory<GalleryFeaturesRepository> {
         self { DefaultGalleryFeaturesRepository() }
     }
     
+    // MARK: Data source
     var galleryFeaturesDataSource: Factory<GalleryFeaturesDataSource> {
         self { DefaultGalleryFeaturesDataSource() }
     }
     
+    // MARK: Mapper
     var getImagesDTOToDomainMapper: Factory<GetImagesDTOToDomainMapper> {
         self { GetImagesDTOToDomainMapper() }
-    }
-    
-    var imageCollectionViewCellViewModel: Factory<ImageCollectionViewCellViewModel> {
-        self { DefaultImageCollectionViewCellViewModel() }.cached
     }
 }

@@ -45,7 +45,7 @@ final class ErrorView: UIView {
         button.setTitle(Consts.retryButtonTitle, for: .normal)
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 36, weight: .regular)
-        button.backgroundColor = .systemIndigo
+        button.backgroundColor = .black
         button.layer.cornerRadius = Consts.buttonCornerRadius
         button.setContentHuggingPriority(.defaultHigh, for: .vertical)
         button.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
@@ -61,11 +61,16 @@ final class ErrorView: UIView {
         super.init(frame: frame)
         setUpHierarchy()
         setUpConstraints()
-        setUpAppearance()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Override
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setUpAppearance()
     }
     
     // MARK: Methods
@@ -99,7 +104,11 @@ private extension ErrorView {
     }
     
     func setUpAppearance() {
-        backgroundColor = .white
+        let whiteLayer = CALayer()
+        whiteLayer.frame = self.layer.bounds
+        whiteLayer.backgroundColor = UIColor.gray.withAlphaComponent(Consts.layerOpacity).cgColor
+        self.layer.addSublayer(whiteLayer)
+        self.backgroundColor = .white
     }
 }
 
@@ -107,9 +116,10 @@ private extension ErrorView {
 private extension ErrorView {
     enum Consts {
         static let topLabelText = "Oops!"
-        static let errorLabelText = "We couldn't load images. Please try again"
+        static let errorLabelText = "We couldn't perform request. Please try again"
         static let retryButtonTitle = "Retry"
         static let stackViewSpacing: CGFloat = 10
         static let buttonCornerRadius: CGFloat = 8
+        static let layerOpacity: CGFloat = 0.2
     }
 }

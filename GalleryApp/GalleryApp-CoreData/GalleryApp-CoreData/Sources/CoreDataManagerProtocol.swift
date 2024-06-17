@@ -12,8 +12,7 @@ import GalleryApp_Models
 // MARK: - CoreDataManagerProtocol
 public protocol CoreDataManagerProtocol {
     var viewContext: NSManagedObjectContext { get }
-    func saveContext()
+    func saveContext() -> AnyPublisher<Void, CoreDataError>
     func fetchEntity<T: NSManagedObject>(_ entity: T.Type) -> AnyPublisher<[T], CoreDataError>
-    func deleteEntity<T: NSManagedObject>(_ entity: T) -> CoreDataError?
-    func deleteAllData() -> CoreDataError?
+    func deleteEntity<T: NSManagedObject>(_ entity: T) -> AnyPublisher<Void, CoreDataError>
 }

@@ -15,7 +15,7 @@ import GalleryApp_Models
 // TODO: Remove public when navigation is ready (viewModel protocols too)
 
 // MARK: - ImagesListViewController
-public final class ImagesListViewController: UICollectionViewController, ViewController {
+public final class ImagesListViewController: UICollectionViewController {
     
     // MARK: Typealias
     public typealias ViewModel = ImagesListViewModel
@@ -88,9 +88,9 @@ public extension ImagesListViewController {
     }
 }
 
-// MARK: - Bind
-public extension ImagesListViewController {
-    func bind(to viewModel: any ViewModel) {
+// MARK: - BindableView
+extension ImagesListViewController: BindableView {
+    public func bind(to viewModel: any ViewModel) {
         viewModel.images
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] loadingState in

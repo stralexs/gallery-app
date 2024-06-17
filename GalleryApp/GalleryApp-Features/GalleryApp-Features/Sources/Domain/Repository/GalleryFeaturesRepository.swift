@@ -13,4 +13,6 @@ import GalleryApp_Models
 protocol GalleryFeaturesRepository {
     func getImages(requestDTO: Int) -> AnyPublisher<[GalleryApp_Models.Image], MoyaError>
     func getFavorites() -> AnyPublisher<[FavoriteImage], CoreDataError>
+    func addToFavorites(requestDTO: GalleryApp_Models.Image) -> AnyPublisher<Void, CoreDataError>
+    func removeFromFavorites(requestDTO: FavoriteImage) -> AnyPublisher<Void, CoreDataError>
 }

@@ -15,12 +15,11 @@ public final class CoreDataManager {
     
     // MARK: Properties
     private let persistentContainer: NSPersistentContainer = {
-        guard
-              let modelURL = Bundle.galleryModels.url(forResource: Consts.gallerAppModel, withExtension: Consts.modelExtension),
+        guard let modelURL = Bundle.galleryModels.url(
+            forResource: Consts.gallerAppModel,
+            withExtension: Consts.modelExtension),
               let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)
-        else {
-            fatalError("Failed to load the persistent container for the gallery app model")
-        }
+        else { fatalError("Failed to load the persistent container for the gallery app model") }
         
         let container = NSPersistentContainer(name: Consts.gallerAppModel, managedObjectModel: managedObjectModel)
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -41,62 +40,54 @@ public final class CoreDataManager {
 
 // MARK: - CoreDataManagerProtocol
 extension CoreDataManager: CoreDataManagerProtocol {
-    public func saveContext() {
-        viewContext.performAndWait {
-            guard self.viewContext.hasChanges else { return }
-            do {
-                try self.viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    public func saveContext() -> AnyPublisher<Void, CoreDataError> {
+        Future<Void, CoreDataError> { [weak self] promise in
+            guard let self else { promise(.failure(.saveExecutionError)); return }
+            viewContext.performAndWait {
+                guard self.viewContext.hasChanges else {
+                    promise(.success(()))
+                    return
+                }
+                do {
+                    try self.viewContext.save()
+                    promise(.success(()))
+                } catch {
+                    print("Failed to save: \(error.localizedDescription)")
+                    promise(.failure(.saveExecutionError))
+                }
             }
         }
+        .eraseToAnyPublisher()
     }
     
     public func fetchEntity<T: NSManagedObject>(_ entity: T.Type) -> AnyPublisher<[T], CoreDataError> {
-        guard let request = T.fetchRequest() as? NSFetchRequest<T> 
-        else { return Fail(error: .requestConversionError).eraseToAnyPublisher() }
-        
-        return Future<[T], CoreDataError> { [weak self] promise in
-            guard let self else { return }
+        Future<[T], CoreDataError> { [weak self] promise in
+            guard let request = T.fetchRequest() as? NSFetchRequest<T>,
+                  let self else { promise(.failure(.requestConversionError)); return }
             do {
                 let results = try self.viewContext.fetch(request)
                 promise(.success(results))
             } catch {
-                print("Failed to fetch \(entity) objects: \(error)")
+                print("Failed to fetch \(entity) objects: \(error.localizedDescription)")
                 promise(.failure(.fetchExecutionError))
             }
         }
         .eraseToAnyPublisher()
     }
     
-    public func deleteEntity<T: NSManagedObject>(_ entity: T) -> CoreDataError? {
-        viewContext.delete(entity)
-        do {
-            try viewContext.save()
-            return nil
-        } catch {
-            print("Error deleting object: \(error.localizedDescription)")
-            return .deleteExecutionError
-        }
-    }
-    
-    public func deleteAllData() -> CoreDataError? {
-        let entities = persistentContainer.managedObjectModel.entities
-        for entity in entities {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.name ?? .empty)
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            
-            do {
-                try viewContext.execute(deleteRequest)
-                try viewContext.save()
-                return nil
-            } catch {
-                print("Error deleting \(entity.name!) objects: \(error.localizedDescription)")
-                return .deleteExecutionError
+    public func deleteEntity<T: NSManagedObject>(_ entity: T) -> AnyPublisher<Void, CoreDataError> {
+        Future<Void, CoreDataError> { promise in
+            self.viewContext.perform {
+                do {
+                    self.viewContext.delete(entity)
+                    try self.viewContext.save()
+                    promise(.success(()))
+                } catch {
+                    promise(.failure(.deleteExecutionError))
+                }
             }
         }
-        return nil
+        .eraseToAnyPublisher()
     }
 }
 

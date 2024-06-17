@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import Combine
+import Factory
 import SnapKit
 import Kingfisher
 import GalleryApp_Models
-import Factory
+import GalleryApp_Core
 
 // MARK: - ImageCollectionViewCell
 final class ImageCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: Typealias
+    public typealias ViewModel = ImageCollectionViewCellViewModel
     
     // MARK: Injected
     @LazyInjected(\.galleryFeaturesContainer.imageCollectionViewCellViewModel)
@@ -20,6 +25,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: Properties
     private let activityIndicator = UIActivityIndicatorView(style: .large)
+    private(set) var subscriptions: Set<AnyCancellable> = []
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -41,6 +47,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     // MARK: Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
+        bind(to: viewModel)
         setUpHierarchy()
         setUpConstraints()
         spinIndicator(true)
@@ -50,22 +57,46 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Override
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     // MARK: Methods
     func configure(with image: GalleryApp_Models.Image) {
-//        viewModel.set(image)
-//        isFavoriteButton.tintColor = image.isFavorite ? .red : .white
-        imageView.kf.setImage(with: image.sizeURL.small) { [weak self] _ in
-            guard let self else { return }
-            self.spinIndicator(false)
-        }
+        viewModel.set(image)
+    }
+}
+
+// MARK: - BindableView
+extension ImageCollectionViewCell: BindableView {
+    func bind(to viewModel: any ViewModel) {
+        viewModel.image
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [unowned self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure:
+                    let warningImage = UIImage(systemName: Consts.warningImageName)
+                    imageView.image = warningImage
+                    imageView.tintColor = .black
+                }
+            }, receiveValue: { [unowned self] image in
+                isFavoriteButton.tintColor = image.isFavorite ? .systemRed : .white
+                imageView.kf.setImage(with: image.sizeURL.small) { [weak self] _ in
+                    guard let self else { return }
+                    self.spinIndicator(false)
+                }
+            })
+            .store(in: &subscriptions)
     }
 }
 
 // MARK: - Private
 private extension ImageCollectionViewCell {
     @objc private func toggleFavorite() {
-        print("Hello")
-//        viewModel.toggleIsFavorite()
+        viewModel.toggleIsFavorite()
     }
     
     func setUpHierarchy() {
@@ -104,5 +135,6 @@ private extension ImageCollectionViewCell {
 private extension ImageCollectionViewCell {
     enum Consts {
         static let heartImageName = "heart.fill"
+        static let warningImageName = "exclamationmark.triangle.fill"
     }
 }

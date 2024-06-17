@@ -66,6 +66,11 @@ public struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.gray.opacity(Consts.Layouts.backgroundColorOpacity))
+        .modifier(ErrorViewModifier(
+            isErrorOccurred: viewModel.isErrorOccurred,
+            retryAction: {
+                viewModel.retryAction(currentImage)
+        }))
     }
 }
 
@@ -115,9 +120,13 @@ private extension ImageDescriptionView {
                     Image(systemName: Consts.Texts.heartImageName)
                         .font(.system(size: 45))
                         .foregroundStyle(Color.black)
-                    Image(systemName: Consts.Texts.heartImageName)
-                        .font(.system(size: 40))
-                        .foregroundStyle(Color.red)
+                    Button {
+                        viewModel.toggleIsFavorite(currentImage)
+                    } label: {
+                        Image(systemName: Consts.Texts.heartImageName)
+                            .font(.system(size: 40))
+                            .foregroundStyle(viewModel.images[currentImage].isFavorite ? .red : .white)
+                    }
                 }
             }
         }
