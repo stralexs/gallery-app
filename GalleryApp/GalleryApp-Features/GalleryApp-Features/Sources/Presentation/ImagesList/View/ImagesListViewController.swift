@@ -42,7 +42,7 @@ public final class ImagesListViewController: UICollectionViewController, ViewCon
             return cell
         }
         
-        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionFooter else { return UICollectionReusableView() }
             return collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
@@ -120,6 +120,30 @@ public extension ImagesListViewController {
     }
 }
 
+// MARK: - UIScrollViewDelegate
+extension ImagesListViewController {
+    public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.contentSize.height > scrollView.bounds.height else { return }
+        let position = scrollView.contentOffset.y
+        let threshold = collectionView.contentSize.height - Consts.collectionViewFooterHeight - scrollView.frame.size.height
+        if position > threshold && !isFetchingImages {
+            viewModel.getMoreImages()
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ImagesListViewController: UICollectionViewDelegateFlowLayout {
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForFooterInSection section: Int
+    ) -> CGSize {
+        isFetchingImages ? CGSize(width: collectionView.bounds.width, height: Consts.collectionViewFooterHeight) : .zero
+    }
+}
+
 // MARK: - Private
 private extension ImagesListViewController {
     func setUpHierarchy() {
@@ -157,30 +181,6 @@ private extension ImagesListViewController {
             guard let self else { return }
             self.viewModel.getImages()
         }
-    }
-}
-
-// MARK: - UIScrollViewDelegate
-extension ImagesListViewController {
-    public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.contentSize.height > scrollView.bounds.height else { return }
-        let position = scrollView.contentOffset.y
-        let threshold = collectionView.contentSize.height - Consts.collectionViewFooterHeight - scrollView.frame.size.height
-        if position > threshold && !isFetchingImages {
-            viewModel.getMoreImages()
-            collectionView.collectionViewLayout.invalidateLayout()
-        }
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension ImagesListViewController: UICollectionViewDelegateFlowLayout {
-    public func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        referenceSizeForFooterInSection section: Int
-    ) -> CGSize {
-        isFetchingImages ? CGSize(width: collectionView.bounds.width, height: Consts.collectionViewFooterHeight) : .zero
     }
 }
 

@@ -44,9 +44,8 @@ public struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
             }
             SUIPageControl(
                 numberOfPages: viewModel.images.count,
-                currentPage: $currentImage
-            )
-            Text(viewModel.images[currentImage].fullDescription)
+                currentPage: $currentImage)
+            Text(viewModel.images[currentImage].description)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .multilineTextAlignment(.center)
                 .font(.system(.body, design: .default).italic())
@@ -75,7 +74,7 @@ private extension ImageDescriptionView {
     var tabView: some View {
         TabView(selection: $currentImage) {
             ForEach(viewModel.images.indices, id: \.self) { index in
-                KFImage(viewModel.images[index].imageSize.full.toURL())
+                KFImage(viewModel.images[index].sizeURL.full)
                     .resizable()
                     .placeholder {
                         ProgressView()
@@ -144,52 +143,29 @@ private extension ImageDescriptionView {
 }
 
 // MARK: - Preview
-
-#if DEBUG
-import GalleryApp_CoreData
-
 #Preview {
-    
-    // MARK: Injected
-    @LazyInjected(\.coreDataManager)
-    var coreDataManager: CoreDataManagerProtocol
-    
-    // MARK: Properties
-    let imageSize1 = ImageSize(
-        full: "https://images.unsplash.com/photo-1718070477385-eed35e367ec8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwxfHx8fHx8Mnx8MTcxODQ1MDc5OXw&ixlib=rb-4.0.3&q=85",
-        small: "https://images.unsplash.com/photo-1718070477385-eed35e367ec8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwxfHx8fHx8Mnx8MTcxODQ1MDc5OXw&ixlib=rb-4.0.3&q=80&w=400",
-        context: coreDataManager.viewContext)
-    let image1 = GalleryApp_Models.Image(
-        id: "CVbr5RR0yac",
-        fullDescription: "a living room with a chair and a potted plant",
-        createdAt: "06 11 2024",
-        creatorName: "Julie Guzal",
-        imageSize: imageSize1,
-        isFavorite: false,
-        context: coreDataManager.viewContext)
-    imageSize1.image = image1
-    
-    let imageSize2 = ImageSize(
-        full: "https://images.unsplash.com/photo-1717852613749-2104b6bd6b39?crop=entropy&cs=srgb&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwzMnx8fHx8fDJ8fDE3MTg0NTUxODZ8&ixlib=rb-4.0.3&q=85",
-        small: "https://images.unsplash.com/photo-1717852613749-2104b6bd6b39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwzMnx8fHx8fDJ8fDE3MTg0NTUxODZ8&ixlib=rb-4.0.3&q=80&w=400",
-        context: coreDataManager.viewContext
-    )
-    let image2 = GalleryApp_Models.Image(
-        id: "GDs4VOWS5wI",
-        fullDescription: "an aerial view of a city at night",
-        createdAt: "14 06 2024",
-        creatorName: "Michael Pointner",
-        imageSize: imageSize2,
-        isFavorite: false,
-        context: coreDataManager.viewContext
-    )
-    imageSize2.image = image2
-    
-    return ImageDescriptionView(
-        viewModel: DefaultImageDescriptionViewModel(),
-        images: [image1, image2],
-        selectedImage: 0
-    )
+    ImageDescriptionView(viewModel: DefaultImageDescriptionViewModel(), images: [
+        GalleryApp_Models.Image(
+            id: "CVbr5RR0yac",
+            description: "a living room with a chair and a potted plant",
+            createdAt: "06 11 2024",
+            creatorName: "Julie Guzal",
+            sizeURL: .init(
+                small: "https://images.unsplash.com/photo-1718070477385-eed35e367ec8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwxfHx8fHx8Mnx8MTcxODQ1MDc5OXw&ixlib=rb-4.0.3&q=80&w=400",
+                full: "https://images.unsplash.com/photo-1718070477385-eed35e367ec8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwxfHx8fHx8Mnx8MTcxODQ1MDc5OXw&ixlib=rb-4.0.3&q=85"
+            ), 
+            isFavorite: true
+        ),
+        GalleryApp_Models.Image(
+            id: "GDs4VOWS5wI",
+            description: "an aerial view of a city at night",
+            createdAt: "14 06 2024",
+            creatorName: "Michael Pointner",
+            sizeURL: .init(
+                small: "https://images.unsplash.com/photo-1717852613749-2104b6bd6b39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwzMnx8fHx8fDJ8fDE3MTg0NTUxODZ8&ixlib=rb-4.0.3&q=80&w=400",
+                full: "https://images.unsplash.com/photo-1717852613749-2104b6bd6b39?crop=entropy&cs=srgb&fm=jpg&ixid=M3w2MjEwOTV8MHwxfGFsbHwzMnx8fHx8fDJ8fDE3MTg0NTUxODZ8&ixlib=rb-4.0.3&q=85"
+            ), 
+            isFavorite: false
+        )
+    ], selectedImage: 0)
 }
-
-#endif

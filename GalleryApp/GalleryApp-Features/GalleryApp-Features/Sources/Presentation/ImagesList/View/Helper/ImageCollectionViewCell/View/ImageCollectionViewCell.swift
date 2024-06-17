@@ -53,8 +53,8 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     // MARK: Methods
     func configure(with image: GalleryApp_Models.Image) {
 //        viewModel.set(image)
-        isFavoriteButton.tintColor = image.isFavorite ? .red : .white
-        imageView.kf.setImage(with: image.imageSize.small.toURL()) { [weak self] _ in
+//        isFavoriteButton.tintColor = image.isFavorite ? .red : .white
+        imageView.kf.setImage(with: image.sizeURL.small) { [weak self] _ in
             guard let self else { return }
             self.spinIndicator(false)
         }

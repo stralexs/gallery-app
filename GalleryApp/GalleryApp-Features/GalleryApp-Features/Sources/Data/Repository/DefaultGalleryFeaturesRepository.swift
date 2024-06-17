@@ -32,7 +32,7 @@ extension DefaultGalleryFeaturesRepository: GalleryFeaturesRepository {
             .eraseToAnyPublisher()
     }
     
-    func getFavorites() -> AnyPublisher<[GalleryApp_Models.Image], CoreDataError> {
+    func getFavorites() -> AnyPublisher<[FavoriteImage], CoreDataError> {
         galleryFeaturesDataSource.getFavorites()
     }
 }

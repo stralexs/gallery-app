@@ -1,5 +1,5 @@
 //
-//  ImageSize.swift
+//  FavoriteImage.swift
 //  GalleryApp-Models
 //
 //  Created by Alexander Sivko on 16.06.24.
@@ -8,26 +8,23 @@
 
 import CoreData
 
-// MARK: - ImageSize
-public final class ImageSize: NSManagedObject, Identifiable {
+// MARK: - FavoriteImage
+public final class FavoriteImage: NSManagedObject, Identifiable {
     
     // MARK: Properties
-    @NSManaged public private(set) var full: String
-    @NSManaged public private(set) var small: String
-    @NSManaged public var image: Image?
+    @NSManaged public private(set) var id: String
+    @NSManaged public private(set) var fullSizeURLString: String
     
     // MARK: Initializer
     public init(
-        full: String,
-        small: String,
-        image: Image? = nil,
+        id: String,
+        fullSizeURLString: String,
         context: NSManagedObjectContext
     ) {
         let entity = NSEntityDescription.entity(forEntityName: Consts.entityName, in: context)!
         super.init(entity: entity, insertInto: context)
-        self.full = full
-        self.small = small
-        self.image = image
+        self.id = id
+        self.fullSizeURLString = fullSizeURLString
     }
     
     @available(*, unavailable)
@@ -41,13 +38,13 @@ public final class ImageSize: NSManagedObject, Identifiable {
     }
     
     // MARK: Methods
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ImageSize> {
-        return NSFetchRequest<ImageSize>(entityName: Consts.entityName)
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<FavoriteImage> {
+        return NSFetchRequest<FavoriteImage>(entityName: Consts.entityName)
     }
 }
 
 // MARK: - Consts
-private extension ImageSize {
+private extension FavoriteImage {
     enum Consts {
         static let entityName = "ImageSize"
     }

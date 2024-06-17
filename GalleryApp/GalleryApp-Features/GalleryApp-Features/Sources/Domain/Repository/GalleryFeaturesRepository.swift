@@ -12,5 +12,5 @@ import GalleryApp_Models
 // MARK: - GalleryFeaturesRepository
 protocol GalleryFeaturesRepository {
     func getImages(requestDTO: Int) -> AnyPublisher<[GalleryApp_Models.Image], MoyaError>
-    func getFavorites() -> AnyPublisher<[GalleryApp_Models.Image], CoreDataError>
+    func getFavorites() -> AnyPublisher<[FavoriteImage], CoreDataError>
 }

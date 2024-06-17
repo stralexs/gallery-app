@@ -12,8 +12,8 @@ import GalleryApp_Models
 
 // MARK: - GetUserFavoriteImagesUseCase
 protocol GetUserFavoriteImagesUseCase: UseCase
-where Input == Int,
-      SuccessType == [GalleryApp_Models.Image],
+where Input == Any?,
+      SuccessType == [FavoriteImage],
       FailureType == CoreDataError {}
 
 // MARK: - DefaultGetUserFavoriteImagesUseCase
@@ -26,7 +26,7 @@ final class DefaultGetUserFavoriteImagesUseCase {
 
 // MARK: - GetUserFavoriteImagesUseCase
 extension DefaultGetUserFavoriteImagesUseCase: GetUserFavoriteImagesUseCase {
-    func execute(request: Int) -> AnyPublisher<[GalleryApp_Models.Image], CoreDataError> {
+    func execute(request: Any?) -> AnyPublisher<[FavoriteImage], CoreDataError> {
         galleryFeaturesRepository.getFavorites()
     }
 }

@@ -21,23 +21,17 @@ final class GetImagesDTOToDomainMapper {
 // MARK: - Mapper
 extension GetImagesDTOToDomainMapper: Mapper {
     func mapModel(_ model: [ImageDTO]) -> [GalleryApp_Models.Image] {
-        model.map { imageDTO in
-            let imageSize = ImageSize(
-                full: imageDTO.urls.full,
-                small: imageDTO.urls.small,
-                context: coreDataManager.viewContext
+        model.map {
+            GalleryApp_Models.Image(
+                id: $0.id,
+                description: $0.altDescription,
+                createdAt: formatDate($0.createdAt),
+                creatorName: $0.user.name,
+                sizeURL: ImageSizeURL(
+                    small: $0.urls.small,
+                    full:$0.urls.full), 
+                isFavorite: false
             )
-            let image = GalleryApp_Models.Image(
-                id: imageDTO.id,
-                fullDescription: imageDTO.altDescription,
-                createdAt: formatDate(imageDTO.createdAt),
-                creatorName: imageDTO.user.name,
-                imageSize: imageSize,
-                isFavorite: false,
-                context: coreDataManager.viewContext
-            )
-            imageSize.image = image
-            return image
         }
     }
 }

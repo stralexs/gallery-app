@@ -29,7 +29,7 @@ extension DefaultGalleryFeaturesDataSource: GalleryFeaturesDataSource {
         networkManager.request(GetImagesRequest(requestTarget: GetImagesTarget.getImages(page: requestDTO)))
     }
     
-    func getFavorites() -> AnyPublisher<[GalleryApp_Models.Image], CoreDataError> {
-        coreDataManager.fetchEntity(GalleryApp_Models.Image.self)
+    func getFavorites() -> AnyPublisher<[FavoriteImage], CoreDataError> {
+        coreDataManager.fetchEntity(FavoriteImage.self)
     }
 }

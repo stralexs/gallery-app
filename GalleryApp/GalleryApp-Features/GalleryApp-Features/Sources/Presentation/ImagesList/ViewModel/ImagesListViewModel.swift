@@ -9,6 +9,7 @@ import Combine
 import Factory
 import GalleryApp_Core
 import GalleryApp_Models
+import Moya
 
 // MARK: - Input
 public protocol ImagesListViewModelInput: ViewModelInput {
@@ -44,14 +45,23 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     // MARK: Properties
     private(set) var subscriptions: Set<AnyCancellable> = []
     private var pagesCounter: Int = 1
+    private var favoriteImagesIDs: Set<String> = []
 }
 
 // MARK: - Input
 extension DefaultImagesListViewModel {
     func getImages() {
         imagesSubject.send(.loading)
-        getImagesUseCase
-            .execute(request: pagesCounter)
+        getUserFavoriteImagesUseCase
+            .execute()
+            .mapError { [unowned self] error in
+                imagesSubject.send(.failed)
+                return MoyaError.underlying(error, nil)
+            }
+            .flatMap { [unowned self] favorites -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> in
+                favoriteImagesIDs = Set(favorites.map { $0.id })
+                return getImagesUseCase.execute(request: pagesCounter)
+            }
             .sink { [unowned self] completion in
                 switch completion {
                 case .finished:
@@ -60,7 +70,8 @@ extension DefaultImagesListViewModel {
                     imagesSubject.send(.failed)
                 }
             } receiveValue: { [unowned self] images in
-                self.imagesSubject.send(.loaded(images))
+                let mappedImages = mapFavorites(through: images)
+                self.imagesSubject.send(.loaded(mappedImages))
             }
             .store(in: &subscriptions)
     }
@@ -69,8 +80,16 @@ extension DefaultImagesListViewModel {
         guard !isLoadingMoreDataSubject.value else { return }
         pagesCounter += 1
         isLoadingMoreDataSubject.send(true)
-        getImagesUseCase
-            .execute(request: pagesCounter)
+        getUserFavoriteImagesUseCase
+            .execute()
+            .mapError { [unowned self] error in
+                imagesSubject.send(.failed)
+                return MoyaError.underlying(error, nil)
+            }
+            .flatMap { [unowned self] favorites -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> in
+                favoriteImagesIDs = Set(favorites.map { $0.id })
+                return getImagesUseCase.execute(request: pagesCounter)
+            }
             .sink { [unowned self] completion in
                 switch completion {
                 case .finished:
@@ -84,10 +103,24 @@ extension DefaultImagesListViewModel {
                     let existingIds = Set(currentImages.map { $0.id })
                     let filteredImages = images.filter { !existingIds.contains($0.id) }
                     currentImages.append(contentsOf: filteredImages)
-                    imagesSubject.send(.loaded(currentImages))
+                    let mappedImages = mapFavorites(through: currentImages)
+                    imagesSubject.send(.loaded(mappedImages))
                 }
                 isLoadingMoreDataSubject.send(false)
             }
             .store(in: &subscriptions)
+    }
+}
+
+// MARK: - Private
+private extension DefaultImagesListViewModel {
+    func mapFavorites(through images: [GalleryApp_Models.Image]) -> [GalleryApp_Models.Image] {
+        images.map { image in
+            var toggledImage = image
+            if favoriteImagesIDs.contains(image.id) {
+                toggledImage.toggleIsFavorite()
+            }
+            return toggledImage
+        }
     }
 }
