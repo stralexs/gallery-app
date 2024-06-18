@@ -11,7 +11,7 @@ import GalleryApp_Core
 import GalleryApp_Models
 
 // MARK: - Input
-public protocol ImageDescriptionViewModelInput: ViewModelInput {
+protocol ImageDescriptionViewModelInput: ViewModelInput {
     func setImages(_ images: [GalleryApp_Models.Image])
     func getMoreImages()
     func toggleIsFavorite(_ currentImage: Int)
@@ -19,13 +19,13 @@ public protocol ImageDescriptionViewModelInput: ViewModelInput {
 }
 
 // MARK: - Output
-public protocol ImageDescriptionViewModelOutput: ViewModelOutput {
+protocol ImageDescriptionViewModelOutput: ViewModelOutput {
     var images: [GalleryApp_Models.Image] { get }
     var isErrorOccurred: Bool { get }
 }
 
 // MARK: - ImageDescriptionViewModel
-public typealias ImageDescriptionViewModel = Subscriptionable & ImageDescriptionViewModelInput & ImageDescriptionViewModelOutput & ObservableObject
+typealias ImageDescriptionViewModel = Subscriptionable & ImageDescriptionViewModelInput & ImageDescriptionViewModelOutput & ObservableObject
 
 // MARK: - DefaultImageDescriptionViewModel
 final class DefaultImageDescriptionViewModel: ImageDescriptionViewModel {
@@ -123,9 +123,11 @@ extension DefaultImageDescriptionViewModel {
         if isNetworkErrorOccurredSubject.value {
             pagesCounter -= 1
             getMoreImages()
+            isNetworkErrorOccurredSubject.send(false)
         }
         if isInternalErrorOccurredSubject.value {
             toggleIsFavorite(currentImage)
+            isInternalErrorOccurredSubject.send(false)
         }
     }
 }

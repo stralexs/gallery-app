@@ -32,6 +32,11 @@ public final class FavoriteImage: NSManagedObject, Identifiable {
         fatalError("\(#function) not implemented")
     }
     
+    @available(*, unavailable)
+    public init(context: NSManagedObjectContext) {
+        fatalError("\(#function) not implemented")
+    }
+    
     override public init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }

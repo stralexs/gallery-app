@@ -59,6 +59,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: Override
     override func prepareForReuse() {
+        spinIndicator(true)
         imageView.image = nil
     }
     

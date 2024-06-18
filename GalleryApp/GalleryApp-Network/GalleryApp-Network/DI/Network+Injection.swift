@@ -9,7 +9,7 @@ import Factory
 
 // MARK: - Injection
 public extension Container {
-    var networkManager: Factory<NetworkManagerProtocol> {
+    var networkManager: Factory<NetworkManagerInterface> {
         self { NetworkManager() }.singleton
     }
 }

@@ -7,30 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42561ED22C1DC8C60059A333 /* GalleryApp_Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42561ED12C1DC8C60059A333 /* GalleryApp_Models.framework */; };
+		421134FA2C2160FF0081BDEB /* GalleryApp_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421134F92C2160FF0081BDEB /* GalleryApp_Navigation.framework */; };
+		421135162C2173200081BDEB /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 421135152C2173200081BDEB /* Factory */; };
 		42561F4C2C1DE1C50059A333 /* GalleryApp_Features.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42561F4B2C1DE1C50059A333 /* GalleryApp_Features.framework */; };
-		42561F4D2C1DE1C50059A333 /* GalleryApp_Features.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42561F4B2C1DE1C50059A333 /* GalleryApp_Features.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42F2FBFE2C1AFE1C00A18502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2FBFD2C1AFE1C00A18502 /* AppDelegate.swift */; };
 		42F2FC002C1AFE1C00A18502 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2FBFF2C1AFE1C00A18502 /* SceneDelegate.swift */; };
-		42F2FC072C1AFE1D00A18502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F2FC062C1AFE1D00A18502 /* Assets.xcassets */; };
 		42F2FC0A2C1AFE1D00A18502 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 42F2FC092C1AFE1D00A18502 /* Base */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		42561F4E2C1DE1C50059A333 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				42561F4D2C1DE1C50059A333 /* GalleryApp_Features.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		421134F92C2160FF0081BDEB /* GalleryApp_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423B5C862C1C3E27006FD859 /* GalleryApp_ImagesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_ImagesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423B5C8A2C1C3E39006FD859 /* GalleryApp_ImagesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_ImagesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42561ECD2C1DC7680059A333 /* GalleryApp_ImageDescription.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_ImageDescription.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +25,6 @@
 		42F2FBFA2C1AFE1C00A18502 /* GalleryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F2FBFD2C1AFE1C00A18502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42F2FBFF2C1AFE1C00A18502 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42F2FC062C1AFE1D00A18502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42F2FC092C1AFE1D00A18502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42F2FC0B2C1AFE1D00A18502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,8 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421135162C2173200081BDEB /* Factory in Frameworks */,
 				42561F4C2C1DE1C50059A333 /* GalleryApp_Features.framework in Frameworks */,
-				42561ED22C1DC8C60059A333 /* GalleryApp_Models.framework in Frameworks */,
+				421134FA2C2160FF0081BDEB /* GalleryApp_Navigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +46,6 @@
 		421163D02C1B154C00FC099D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				42F2FC062C1AFE1D00A18502 /* Assets.xcassets */,
 				42F2FC082C1AFE1D00A18502 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
@@ -86,6 +71,7 @@
 		423B5C852C1C3E27006FD859 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				421134F92C2160FF0081BDEB /* GalleryApp_Navigation.framework */,
 				42561F4B2C1DE1C50059A333 /* GalleryApp_Features.framework */,
 				42561ED12C1DC8C60059A333 /* GalleryApp_Models.framework */,
 				42561ECD2C1DC7680059A333 /* GalleryApp_ImageDescription.framework */,
@@ -132,13 +118,15 @@
 				42F2FBF62C1AFE1C00A18502 /* Sources */,
 				42F2FBF72C1AFE1C00A18502 /* Frameworks */,
 				42F2FBF82C1AFE1C00A18502 /* Resources */,
-				42561F4E2C1DE1C50059A333 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GalleryApp;
+			packageProductDependencies = (
+				421135152C2173200081BDEB /* Factory */,
+			);
 			productName = GalleryApp;
 			productReference = 42F2FBFA2C1AFE1C00A18502 /* GalleryApp.app */;
 			productType = "com.apple.product-type.application";
@@ -167,6 +155,9 @@
 				Base,
 			);
 			mainGroup = 42F2FBF12C1AFE1C00A18502;
+			packageReferences = (
+				421135142C2173200081BDEB /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = 42F2FBFB2C1AFE1C00A18502 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -181,7 +172,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42F2FC072C1AFE1D00A18502 /* Assets.xcassets in Resources */,
 				42F2FC0A2C1AFE1D00A18502 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +407,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		421135142C2173200081BDEB /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		421135152C2173200081BDEB /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421135142C2173200081BDEB /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42F2FBF22C1AFE1C00A18502 /* Project object */;
 }

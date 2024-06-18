@@ -7,151 +7,180 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		421163A12C1B129100FC099D /* GalleryApp_CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 421163A02C1B129100FC099D /* GalleryApp_CoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		427427352C1EC9BC004364B1 /* CoreDataManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427427342C1EC9BC004364B1 /* CoreDataManagerInterface.swift */; };
-		427427382C1EC9CE004364B1 /* GalleryApp_Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427427372C1EC9CE004364B1 /* GalleryApp_Models.framework */; };
-		4274273C2C1ECA08004364B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274273B2C1ECA08004364B1 /* CoreDataManager.swift */; };
-		4274273F2C1ECA48004364B1 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 4274273E2C1ECA48004364B1 /* Factory */; };
-		427427422C1ECA64004364B1 /* CoreData+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427427412C1ECA64004364B1 /* CoreData+Injection.swift */; };
-		4274274D2C1ECD2C004364B1 /* GalleryApp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274274C2C1ECD2C004364B1 /* GalleryApp_Core.framework */; };
+		421134DD2C215F140081BDEB /* GalleryApp_Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 421134DC2C215F140081BDEB /* GalleryApp_Navigation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		421134E52C215F530081BDEB /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 421134E42C215F530081BDEB /* Factory */; };
+		421134F02C215F970081BDEB /* CoordinatorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421134E92C215F970081BDEB /* CoordinatorDependencies.swift */; };
+		421134F12C215F970081BDEB /* CoordinatorFlowListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421134EA2C215F970081BDEB /* CoordinatorFlowListener.swift */; };
+		421134F22C215F970081BDEB /* DefaultCoordinatorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421134EB2C215F970081BDEB /* DefaultCoordinatorDependencies.swift */; };
+		421134F42C215F970081BDEB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421134ED2C215F970081BDEB /* NavigationCoordinator.swift */; };
+		421134F52C215F970081BDEB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421134EE2C215F970081BDEB /* AppCoordinator.swift */; };
+		421134F62C215F970081BDEB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421134EF2C215F970081BDEB /* Coordinator.swift */; };
+		421134F82C2160430081BDEB /* Navigation+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421134F72C2160430081BDEB /* Navigation+Injection.swift */; };
+		421135282C21902D0081BDEB /* GalleryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421135272C21902D0081BDEB /* GalleryNavigationController.swift */; };
+		421135302C21B84D0081BDEB /* GalleryNavigationCoordinatorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4211352F2C21B84D0081BDEB /* GalleryNavigationCoordinatorInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4211639D2C1B129100FC099D /* GalleryApp_CoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_CoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		421163A02C1B129100FC099D /* GalleryApp_CoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_CoreData.h; sourceTree = "<group>"; };
-		427427342C1EC9BC004364B1 /* CoreDataManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerInterface.swift; sourceTree = "<group>"; };
-		427427372C1EC9CE004364B1 /* GalleryApp_Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4274273B2C1ECA08004364B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		427427412C1ECA64004364B1 /* CoreData+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Injection.swift"; sourceTree = "<group>"; };
-		4274274C2C1ECD2C004364B1 /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		421134D92C215F140081BDEB /* GalleryApp_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		421134DC2C215F140081BDEB /* GalleryApp_Navigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Navigation.h; sourceTree = "<group>"; };
+		421134E92C215F970081BDEB /* CoordinatorDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorDependencies.swift; sourceTree = "<group>"; };
+		421134EA2C215F970081BDEB /* CoordinatorFlowListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorFlowListener.swift; sourceTree = "<group>"; };
+		421134EB2C215F970081BDEB /* DefaultCoordinatorDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCoordinatorDependencies.swift; sourceTree = "<group>"; };
+		421134ED2C215F970081BDEB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		421134EE2C215F970081BDEB /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		421134EF2C215F970081BDEB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		421134F72C2160430081BDEB /* Navigation+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Injection.swift"; sourceTree = "<group>"; };
+		421135102C216A4E0081BDEB /* GalleryApp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		421135272C21902D0081BDEB /* GalleryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNavigationController.swift; sourceTree = "<group>"; };
+		4211352B2C21B7BD0081BDEB /* GalleryApp_CoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_CoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4211352F2C21B84D0081BDEB /* GalleryNavigationCoordinatorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNavigationCoordinatorInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4211639A2C1B129100FC099D /* Frameworks */ = {
+		421134D62C215F140081BDEB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4274274D2C1ECD2C004364B1 /* GalleryApp_Core.framework in Frameworks */,
-				427427382C1EC9CE004364B1 /* GalleryApp_Models.framework in Frameworks */,
-				4274273F2C1ECA48004364B1 /* Factory in Frameworks */,
+				421134E52C215F530081BDEB /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		421163932C1B129100FC099D = {
+		421134CF2C215F140081BDEB = {
 			isa = PBXGroup;
 			children = (
-				4211639F2C1B129100FC099D /* GalleryApp-CoreData */,
-				4211639E2C1B129100FC099D /* Products */,
-				427427362C1EC9CE004364B1 /* Frameworks */,
+				421134DB2C215F140081BDEB /* GalleryApp-Navigation */,
+				421134DA2C215F140081BDEB /* Products */,
+				4211350F2C216A4E0081BDEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		4211639E2C1B129100FC099D /* Products */ = {
+		421134DA2C215F140081BDEB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4211639D2C1B129100FC099D /* GalleryApp_CoreData.framework */,
+				421134D92C215F140081BDEB /* GalleryApp_Navigation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4211639F2C1B129100FC099D /* GalleryApp-CoreData */ = {
+		421134DB2C215F140081BDEB /* GalleryApp-Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				427427402C1ECA54004364B1 /* DI */,
-				421163D82C1B169A00FC099D /* Sources */,
-				421163D72C1B169000FC099D /* SupportingFiles */,
+				421134E82C215F770081BDEB /* DI */,
+				421134E72C215F710081BDEB /* Sources */,
+				421134E62C215F660081BDEB /* SupportingFiles */,
 			);
-			path = "GalleryApp-CoreData";
+			path = "GalleryApp-Navigation";
 			sourceTree = "<group>";
 		};
-		421163D72C1B169000FC099D /* SupportingFiles */ = {
+		421134E62C215F660081BDEB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				421163A02C1B129100FC099D /* GalleryApp_CoreData.h */,
+				421134DC2C215F140081BDEB /* GalleryApp_Navigation.h */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		421163D82C1B169A00FC099D /* Sources */ = {
+		421134E72C215F710081BDEB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				427427342C1EC9BC004364B1 /* CoreDataManagerInterface.swift */,
-				4274273B2C1ECA08004364B1 /* CoreDataManager.swift */,
+				421135182C2177B00081BDEB /* Class */,
+				421135172C2177AB0081BDEB /* Interface */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		427427362C1EC9CE004364B1 /* Frameworks */ = {
+		421134E82C215F770081BDEB /* DI */ = {
 			isa = PBXGroup;
 			children = (
-				4274274C2C1ECD2C004364B1 /* GalleryApp_Core.framework */,
-				427427372C1EC9CE004364B1 /* GalleryApp_Models.framework */,
+				421134F72C2160430081BDEB /* Navigation+Injection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		4211350F2C216A4E0081BDEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4211352B2C21B7BD0081BDEB /* GalleryApp_CoreData.framework */,
+				421135102C216A4E0081BDEB /* GalleryApp_Core.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		427427402C1ECA54004364B1 /* DI */ = {
+		421135172C2177AB0081BDEB /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				427427412C1ECA64004364B1 /* CoreData+Injection.swift */,
+				421134EF2C215F970081BDEB /* Coordinator.swift */,
+				4211352F2C21B84D0081BDEB /* GalleryNavigationCoordinatorInterface.swift */,
+				421134E92C215F970081BDEB /* CoordinatorDependencies.swift */,
+				421134EA2C215F970081BDEB /* CoordinatorFlowListener.swift */,
 			);
-			path = DI;
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		421135182C2177B00081BDEB /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				421134ED2C215F970081BDEB /* NavigationCoordinator.swift */,
+				421134EE2C215F970081BDEB /* AppCoordinator.swift */,
+				421135272C21902D0081BDEB /* GalleryNavigationController.swift */,
+				421134EB2C215F970081BDEB /* DefaultCoordinatorDependencies.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		421163982C1B129100FC099D /* Headers */ = {
+		421134D42C215F140081BDEB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421163A12C1B129100FC099D /* GalleryApp_CoreData.h in Headers */,
+				421134DD2C215F140081BDEB /* GalleryApp_Navigation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4211639C2C1B129100FC099D /* GalleryApp-CoreData */ = {
+		421134D82C215F140081BDEB /* GalleryApp-Navigation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 421163A42C1B129100FC099D /* Build configuration list for PBXNativeTarget "GalleryApp-CoreData" */;
+			buildConfigurationList = 421134E02C215F140081BDEB /* Build configuration list for PBXNativeTarget "GalleryApp-Navigation" */;
 			buildPhases = (
-				421163982C1B129100FC099D /* Headers */,
-				421163992C1B129100FC099D /* Sources */,
-				4211639A2C1B129100FC099D /* Frameworks */,
-				4211639B2C1B129100FC099D /* Resources */,
+				421134D42C215F140081BDEB /* Headers */,
+				421134D52C215F140081BDEB /* Sources */,
+				421134D62C215F140081BDEB /* Frameworks */,
+				421134D72C215F140081BDEB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "GalleryApp-CoreData";
+			name = "GalleryApp-Navigation";
 			packageProductDependencies = (
-				4274273E2C1ECA48004364B1 /* Factory */,
+				421134E42C215F530081BDEB /* Factory */,
 			);
-			productName = "GalleryApp-CoreData";
-			productReference = 4211639D2C1B129100FC099D /* GalleryApp_CoreData.framework */;
+			productName = "GalleryApp-Navigation";
+			productReference = 421134D92C215F140081BDEB /* GalleryApp_Navigation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		421163942C1B129100FC099D /* Project object */ = {
+		421134D02C215F140081BDEB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					4211639C2C1B129100FC099D = {
+					421134D82C215F140081BDEB = {
 						CreatedOnToolsVersion = 15.4;
-						LastSwiftMigration = 1540;
 					};
 				};
 			};
-			buildConfigurationList = 421163972C1B129100FC099D /* Build configuration list for PBXProject "GalleryApp-CoreData" */;
+			buildConfigurationList = 421134D32C215F140081BDEB /* Build configuration list for PBXProject "GalleryApp-Navigation" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -159,21 +188,21 @@
 				en,
 				Base,
 			);
-			mainGroup = 421163932C1B129100FC099D;
+			mainGroup = 421134CF2C215F140081BDEB;
 			packageReferences = (
-				4274273D2C1ECA48004364B1 /* XCRemoteSwiftPackageReference "Factory" */,
+				421134E32C215F530081BDEB /* XCRemoteSwiftPackageReference "Factory" */,
 			);
-			productRefGroup = 4211639E2C1B129100FC099D /* Products */;
+			productRefGroup = 421134DA2C215F140081BDEB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4211639C2C1B129100FC099D /* GalleryApp-CoreData */,
+				421134D82C215F140081BDEB /* GalleryApp-Navigation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4211639B2C1B129100FC099D /* Resources */ = {
+		421134D72C215F140081BDEB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -183,20 +212,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		421163992C1B129100FC099D /* Sources */ = {
+		421134D52C215F140081BDEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4274273C2C1ECA08004364B1 /* CoreDataManager.swift in Sources */,
-				427427352C1EC9BC004364B1 /* CoreDataManagerInterface.swift in Sources */,
-				427427422C1ECA64004364B1 /* CoreData+Injection.swift in Sources */,
+				421135282C21902D0081BDEB /* GalleryNavigationController.swift in Sources */,
+				421134F52C215F970081BDEB /* AppCoordinator.swift in Sources */,
+				421134F12C215F970081BDEB /* CoordinatorFlowListener.swift in Sources */,
+				421134F02C215F970081BDEB /* CoordinatorDependencies.swift in Sources */,
+				421135302C21B84D0081BDEB /* GalleryNavigationCoordinatorInterface.swift in Sources */,
+				421134F82C2160430081BDEB /* Navigation+Injection.swift in Sources */,
+				421134F22C215F970081BDEB /* DefaultCoordinatorDependencies.swift in Sources */,
+				421134F42C215F970081BDEB /* NavigationCoordinator.swift in Sources */,
+				421134F62C215F970081BDEB /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		421163A22C1B129100FC099D /* Debug */ = {
+		421134DE2C215F140081BDEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -262,7 +297,7 @@
 			};
 			name = Debug;
 		};
-		421163A32C1B129100FC099D /* Release */ = {
+		421134DF2C215F140081BDEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -321,14 +356,14 @@
 			};
 			name = Release;
 		};
-		421163A52C1B129100FC099D /* Debug */ = {
+		421134E12C215F140081BDEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5C3RTUTT2M;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -345,7 +380,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "alexander-sivko.GalleryApp-CoreData";
+				PRODUCT_BUNDLE_IDENTIFIER = "alexander-sivko.GalleryApp-Navigation";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -354,20 +389,19 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		421163A62C1B129100FC099D /* Release */ = {
+		421134E22C215F140081BDEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5C3RTUTT2M;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -384,7 +418,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "alexander-sivko.GalleryApp-CoreData";
+				PRODUCT_BUNDLE_IDENTIFIER = "alexander-sivko.GalleryApp-Navigation";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -401,20 +435,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		421163972C1B129100FC099D /* Build configuration list for PBXProject "GalleryApp-CoreData" */ = {
+		421134D32C215F140081BDEB /* Build configuration list for PBXProject "GalleryApp-Navigation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				421163A22C1B129100FC099D /* Debug */,
-				421163A32C1B129100FC099D /* Release */,
+				421134DE2C215F140081BDEB /* Debug */,
+				421134DF2C215F140081BDEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		421163A42C1B129100FC099D /* Build configuration list for PBXNativeTarget "GalleryApp-CoreData" */ = {
+		421134E02C215F140081BDEB /* Build configuration list for PBXNativeTarget "GalleryApp-Navigation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				421163A52C1B129100FC099D /* Debug */,
-				421163A62C1B129100FC099D /* Release */,
+				421134E12C215F140081BDEB /* Debug */,
+				421134E22C215F140081BDEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -422,7 +456,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4274273D2C1ECA48004364B1 /* XCRemoteSwiftPackageReference "Factory" */ = {
+		421134E32C215F530081BDEB /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
 			requirement = {
@@ -433,12 +467,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4274273E2C1ECA48004364B1 /* Factory */ = {
+		421134E42C215F530081BDEB /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4274273D2C1ECA48004364B1 /* XCRemoteSwiftPackageReference "Factory" */;
+			package = 421134E32C215F530081BDEB /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 421163942C1B129100FC099D /* Project object */;
+	rootObject = 421134D02C215F140081BDEB /* Project object */;
 }

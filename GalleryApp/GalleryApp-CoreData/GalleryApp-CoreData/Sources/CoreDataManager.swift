@@ -38,8 +38,8 @@ public final class CoreDataManager {
     public init() {}
 }
 
-// MARK: - CoreDataManagerProtocol
-extension CoreDataManager: CoreDataManagerProtocol {
+// MARK: - CoreDataManagerInterface
+extension CoreDataManager: CoreDataManagerInterface {
     public func saveContext() -> AnyPublisher<Void, CoreDataError> {
         Future<Void, CoreDataError> { [weak self] promise in
             guard let self else { promise(.failure(.saveExecutionError)); return }

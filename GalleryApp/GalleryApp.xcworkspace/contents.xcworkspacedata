@@ -11,6 +11,9 @@
       location = "container:"
       name = "GalleryCore">
       <FileRef
+         location = "group:GalleryApp-Navigation/GalleryApp-Navigation.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:GalleryApp-CoreData/GalleryApp-CoreData.xcodeproj">
       </FileRef>
       <FileRef

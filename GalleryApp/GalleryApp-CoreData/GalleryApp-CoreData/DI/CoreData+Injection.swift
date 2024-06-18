@@ -9,7 +9,7 @@ import Factory
 
 // MARK: - Injection
 public extension Container {
-    var coreDataManager: Factory<CoreDataManagerProtocol> {
+    var coreDataManager: Factory<CoreDataManagerInterface> {
         self { CoreDataManager() }.singleton
     }
 }

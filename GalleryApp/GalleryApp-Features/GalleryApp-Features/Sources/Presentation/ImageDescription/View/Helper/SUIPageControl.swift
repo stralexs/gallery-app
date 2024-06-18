@@ -25,6 +25,8 @@ struct SUIPageControl: UIViewRepresentable {
 extension SUIPageControl {
     func makeUIView(context: Context) -> UIPageControl {
         let pageControl = UIPageControl()
+        pageControl.numberOfPages = numberOfPages
+        pageControl.currentPage = currentPage
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
         return pageControl

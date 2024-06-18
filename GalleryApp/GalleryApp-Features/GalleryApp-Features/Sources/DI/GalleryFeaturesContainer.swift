@@ -24,6 +24,7 @@ final class GalleryFeaturesContainer: SharedContainer {
 
 // MARK: - Services
 extension GalleryFeaturesContainer {
+    
     // MARK: Use case
     var getImagesUseCase: Factory<any GetImagesUseCase> {
         self { DefaultGetImagesUseCase() }
@@ -44,6 +45,10 @@ extension GalleryFeaturesContainer {
     // MARK: ViewModel
     var imagesListViewModel: Factory<any ImagesListViewModel> {
         self { DefaultImagesListViewModel() }
+    }
+    
+    var imageDescriptionViewModel: Factory<any ImageDescriptionViewModel> {
+        self { DefaultImageDescriptionViewModel() }
     }
     
     var imageCollectionViewCellViewModel: Factory<any ImageCollectionViewCellViewModel> {

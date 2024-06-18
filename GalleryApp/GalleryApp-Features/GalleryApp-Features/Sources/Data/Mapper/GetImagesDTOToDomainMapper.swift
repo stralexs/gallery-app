@@ -15,7 +15,7 @@ final class GetImagesDTOToDomainMapper {
     
     // MARK: Injected
     @LazyInjected(\.coreDataManager)
-    private var coreDataManager: CoreDataManagerProtocol
+    private var coreDataManager: CoreDataManagerInterface
 }
 
 // MARK: - Mapper

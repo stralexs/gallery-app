@@ -11,17 +11,15 @@ import Kingfisher
 import GalleryApp_Models
 import GalleryApp_Core
 
-// TODO: Remove public when navigation is ready
-
 // MARK: - ImageDescriptionView
-public struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
+struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
     
     // MARK: Properties
     @StateObject private var viewModel: ViewModel
     @State private var currentImage: Int
     
     // MARK: Initializer
-    public init(
+    init(
         viewModel: ViewModel,
         images: [GalleryApp_Models.Image],
         selectedImage: Int
@@ -32,7 +30,7 @@ public struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
     }
     
     // MARK: Body
-    public var body: some View {
+    var body: some View {
         VStack(spacing: Consts.Layouts.stackSpacing) {
             ZStack {
                 tabView
@@ -45,6 +43,7 @@ public struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
             SUIPageControl(
                 numberOfPages: viewModel.images.count,
                 currentPage: $currentImage)
+                .animation(.easeInOut, value: currentImage)
             Text(viewModel.images[currentImage].description)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .multilineTextAlignment(.center)

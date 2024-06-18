@@ -12,19 +12,21 @@ import GalleryApp_Models
 import Moya
 
 // MARK: - Input
-public protocol ImagesListViewModelInput: ViewModelInput {
+protocol ImagesListViewModelInput: ViewModelInput {
+    var delegate: ImagesListCoordinatorInterface? { get set }
     func getImages()
     func getMoreImages()
+    func navigateToImageDescription(selectedImage: Int)
 }
 
 // MARK: - Output
-public protocol ImagesListViewModelOutput: ViewModelOutput {
+protocol ImagesListViewModelOutput: ViewModelOutput {
     var images: AnyPublisher<LoadingState<[GalleryApp_Models.Image]>, Never> { get }
     var isLoadingMoreData: AnyPublisher<Bool, Never> { get }
 }
 
 // MARK: - ImagesListViewModel
-public typealias ImagesListViewModel = Subscriptionable & ImagesListViewModelInput & ImagesListViewModelOutput
+typealias ImagesListViewModel = Subscriptionable & ImagesListViewModelInput & ImagesListViewModelOutput
 
 // MARK: - DefaultImagesListViewModel
 final class DefaultImagesListViewModel: ImagesListViewModel {
@@ -46,6 +48,7 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     private(set) var subscriptions: Set<AnyCancellable> = []
     private var pagesCounter: Int = 1
     private var favoriteImagesIDs: Set<String> = []
+    weak var delegate: ImagesListCoordinatorInterface?
 }
 
 // MARK: - Input
@@ -54,9 +57,8 @@ extension DefaultImagesListViewModel {
         imagesSubject.send(.loading)
         getUserFavoriteImagesUseCase
             .execute(request: ())
-            .mapError { [unowned self] error in
-                imagesSubject.send(.failed)
-                return MoyaError.underlying(error, nil)
+            .mapError { error in
+                MoyaError.underlying(error, nil)
             }
             .flatMap { [unowned self] favorites -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> in
                 favoriteImagesIDs = Set(favorites.map { $0.id })
@@ -82,9 +84,8 @@ extension DefaultImagesListViewModel {
         isLoadingMoreDataSubject.send(true)
         getUserFavoriteImagesUseCase
             .execute(request: ())
-            .mapError { [unowned self] error in
-                imagesSubject.send(.failed)
-                return MoyaError.underlying(error, nil)
+            .mapError { error in
+                MoyaError.underlying(error, nil)
             }
             .flatMap { [unowned self] favorites -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> in
                 favoriteImagesIDs = Set(favorites.map { $0.id })
@@ -109,6 +110,12 @@ extension DefaultImagesListViewModel {
                 isLoadingMoreDataSubject.send(false)
             }
             .store(in: &subscriptions)
+    }
+    
+    func navigateToImageDescription(selectedImage: Int) {
+        if case let .loaded(images) = imagesSubject.value {
+            delegate?.navigateToImageDescription(images: images, selectedImage: selectedImage)
+        }
     }
 }
 

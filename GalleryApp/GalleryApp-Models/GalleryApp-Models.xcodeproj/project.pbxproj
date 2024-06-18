@@ -93,9 +93,8 @@
 		4213DC472C1EB5DD00DA443F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				426967B82C1F3D2400CF7E3E /* Image.swift */,
-				421164082C1B427A00FC099D /* ImageDTO.swift */,
-				426967BA2C1F3D4300CF7E3E /* ImageSizeURL.swift */,
+				426540442C20891D00D7CD4D /* Domain */,
+				426540452C20892100D7CD4D /* DTO */,
 				429759E52C1C9F8D001C0D03 /* LoadingState.swift */,
 			);
 			path = Models;
@@ -118,6 +117,23 @@
 				423B5C742C1C3366006FD859 /* GalleryApp_Core.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		426540442C20891D00D7CD4D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				426967B82C1F3D2400CF7E3E /* Image.swift */,
+				426967BA2C1F3D4300CF7E3E /* ImageSizeURL.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		426540452C20892100D7CD4D /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				421164082C1B427A00FC099D /* ImageDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		427427432C1ECB4A004364B1 /* Extensions */ = {

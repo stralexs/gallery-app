@@ -10,7 +10,7 @@ import CombineMoya
 import Moya
 
 // MARK: - NetworkManager
-public final class NetworkManager: NetworkManagerProtocol {
+public final class NetworkManager: NetworkManagerInterface {
     
     // MARK: Properties
     private let provider: MoyaProvider<MultiTarget>

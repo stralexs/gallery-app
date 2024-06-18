@@ -11,21 +11,17 @@ import Factory
 import SnapKit
 import GalleryApp_Core
 import GalleryApp_Models
-
-// TODO: Remove public when navigation is ready (viewModel protocols too)
+import GalleryApp_Navigation
 
 // MARK: - ImagesListViewController
-public final class ImagesListViewController: UICollectionViewController {
+final class ImagesListViewController: UICollectionViewController {
     
     // MARK: Typealias
-    public typealias ViewModel = ImagesListViewModel
-    
-    // MARK: Injected
-    @LazyInjected(\.galleryFeaturesContainer.imagesListViewModel)
-    private var viewModel: any ViewModel
+    typealias ViewModel = ImagesListViewModel
         
     // MARK: Properties
-    private(set) public var subscriptions: Set<AnyCancellable> = []
+    private let viewModel: ImagesListViewModel
+    private(set) var subscriptions: Set<AnyCancellable> = []
     private var isFetchingImages = false
     
     private let loadingView = LoadingView()
@@ -55,7 +51,8 @@ public final class ImagesListViewController: UICollectionViewController {
     }()
     
     // MARK: Initializer
-    public init() {
+    init(viewModel: ImagesListViewModel) {
+        self.viewModel = viewModel
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = Consts.collectionViewSpacing
@@ -78,7 +75,7 @@ public final class ImagesListViewController: UICollectionViewController {
 }
 
 // MARK: - Lifecycle
-public extension ImagesListViewController {
+extension ImagesListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpHierarchy()
@@ -86,11 +83,16 @@ public extension ImagesListViewController {
         bind(to: viewModel)
         viewModel.getImages()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpAppearance()
+    }
 }
 
 // MARK: - BindableView
 extension ImagesListViewController: BindableView {
-    public func bind(to viewModel: any ViewModel) {
+    func bind(to viewModel: any ViewModel) {
         viewModel.images
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] loadingState in
@@ -120,9 +122,19 @@ extension ImagesListViewController: BindableView {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+extension ImagesListViewController {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        viewModel.navigateToImageDescription(selectedImage: indexPath.row)
+    }
+}
+
 // MARK: - UIScrollViewDelegate
 extension ImagesListViewController {
-    public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.contentSize.height > scrollView.bounds.height else { return }
         let position = scrollView.contentOffset.y
         let threshold = collectionView.contentSize.height - Consts.collectionViewFooterHeight - scrollView.frame.size.height
@@ -135,7 +147,7 @@ extension ImagesListViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ImagesListViewController: UICollectionViewDelegateFlowLayout {
-    public func collectionView(
+    func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         referenceSizeForFooterInSection section: Int
@@ -182,11 +194,20 @@ private extension ImagesListViewController {
             self.viewModel.getImages()
         }
     }
+    
+    func setUpAppearance() {
+        guard let navigationController = navigationController as? GalleryNavigationController 
+        else { return }
+        navigationController.setNavigationTitle(Consts.navigationTitle)
+        navigationController.setBackButtonTitle(Consts.backButtonItemTitile)
+    }
 }
 
 // MARK: - Consts
 private extension ImagesListViewController {
     enum Consts {
+        static let navigationTitle = "Gallery App"
+        static let backButtonItemTitile = "Back"
         static let collectionViewSpacing: CGFloat = 1
         static let collectionViewFooterHeight: CGFloat = 100
     }

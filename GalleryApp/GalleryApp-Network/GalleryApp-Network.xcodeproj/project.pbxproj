@@ -11,7 +11,7 @@
 		421163E12C1B199A00FC099D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 421163E02C1B199A00FC099D /* CombineMoya */; };
 		421163E32C1B199A00FC099D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 421163E22C1B199A00FC099D /* Moya */; };
 		421163E52C1B1A0B00FC099D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163E42C1B1A0B00FC099D /* NetworkManager.swift */; };
-		421163E92C1B396600FC099D /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */; };
+		421163E92C1B396600FC099D /* NetworkManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163E82C1B396500FC099D /* NetworkManagerInterface.swift */; };
 		421163EB2C1B399100FC099D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EA2C1B399100FC099D /* Request.swift */; };
 		421163ED2C1B3A1A00FC099D /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */; };
 		421163F12C1B3AEE00FC099D /* GalleryHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421163F02C1B3AEE00FC099D /* GalleryHeaders.swift */; };
@@ -23,7 +23,7 @@
 		421163612C1B11FB00FC099D /* GalleryApp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryApp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421163642C1B11FB00FC099D /* GalleryApp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryApp_Network.h; sourceTree = "<group>"; };
 		421163E42C1B1A0B00FC099D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		421163E82C1B396500FC099D /* NetworkManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerInterface.swift; sourceTree = "<group>"; };
 		421163EA2C1B399100FC099D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		421163EC2C1B3A1A00FC099D /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		421163F02C1B3AEE00FC099D /* GalleryHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryHeaders.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		421163EE2C1B3A6A00FC099D /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				421163E82C1B396500FC099D /* NetworkManagerProtocol.swift */,
+				421163E82C1B396500FC099D /* NetworkManagerInterface.swift */,
 				421163E42C1B1A0B00FC099D /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
@@ -203,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421163E92C1B396600FC099D /* NetworkManagerProtocol.swift in Sources */,
+				421163E92C1B396600FC099D /* NetworkManagerInterface.swift in Sources */,
 				421163EB2C1B399100FC099D /* Request.swift in Sources */,
 				421163F12C1B3AEE00FC099D /* GalleryHeaders.swift in Sources */,
 				421163E52C1B1A0B00FC099D /* NetworkManager.swift in Sources */,
