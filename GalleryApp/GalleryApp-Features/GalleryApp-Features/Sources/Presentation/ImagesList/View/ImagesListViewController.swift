@@ -20,7 +20,7 @@ final class ImagesListViewController: UICollectionViewController {
     typealias ViewModel = ImagesListViewModel
         
     // MARK: Properties
-    private let viewModel: ImagesListViewModel
+    private let viewModel: any ImagesListViewModel
     private(set) var subscriptions: Set<AnyCancellable> = []
     private var isFetchingImages = false
     
@@ -51,7 +51,7 @@ final class ImagesListViewController: UICollectionViewController {
     }()
     
     // MARK: Initializer
-    init(viewModel: ImagesListViewModel) {
+    init(viewModel: any ImagesListViewModel) {
         self.viewModel = viewModel
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -81,7 +81,7 @@ extension ImagesListViewController {
         setUpHierarchy()
         setUpConstraints()
         bind(to: viewModel)
-        viewModel.getImages()
+        viewModel.onViewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +93,7 @@ extension ImagesListViewController {
 // MARK: - BindableView
 extension ImagesListViewController: BindableView {
     func bind(to viewModel: any ViewModel) {
-        viewModel.images
+        viewModel.output
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] loadingState in
                 switch loadingState {
@@ -191,7 +191,7 @@ private extension ImagesListViewController {
         errorView.isHidden = false
         errorView.retryAction = { [weak self] in
             guard let self else { return }
-            self.viewModel.getImages()
+            self.viewModel.onViewDidLoad()
         }
     }
     
@@ -200,6 +200,11 @@ private extension ImagesListViewController {
         else { return }
         navigationController.setNavigationTitle(Consts.navigationTitle)
         navigationController.setBackButtonTitle(Consts.backButtonItemTitile)
+        navigationController.addRightNavigationItem(target: self, action: #selector(rightButtonTapped))
+    }
+    
+    @objc func rightButtonTapped() {
+        viewModel.navigateToUserFavoriteImages()
     }
 }
 

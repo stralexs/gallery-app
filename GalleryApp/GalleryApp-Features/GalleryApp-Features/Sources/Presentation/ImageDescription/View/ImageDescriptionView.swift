@@ -41,22 +41,22 @@ struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
                     .padding()
             }
             SUIPageControl(
-                numberOfPages: viewModel.images.count,
+                numberOfPages: viewModel.output.count,
                 currentPage: $currentImage)
                 .animation(.easeInOut, value: currentImage)
-            Text(viewModel.images[currentImage].description)
+            Text(viewModel.output[currentImage].description)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .multilineTextAlignment(.center)
                 .font(.system(.body, design: .default).italic())
                 .animation(.easeInOut, value: currentImage)
                 .padding(.horizontal)
-            Text(viewModel.images[currentImage].createdAt)
+            Text(viewModel.output[currentImage].createdAt)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .multilineTextAlignment(.center)
                 .font(.system(.body, design: .default).italic())
                 .animation(.easeInOut, value: currentImage)
                 .padding(.horizontal)
-            Text(Consts.Texts.byKeyword + " " + viewModel.images[currentImage].creatorName)
+            Text(Consts.Texts.byKeyword + " " + viewModel.output[currentImage].creatorName)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .multilineTextAlignment(.center)
                 .font(.system(.body, design: .default).italic())
@@ -77,8 +77,8 @@ struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
 private extension ImageDescriptionView {
     var tabView: some View {
         TabView(selection: $currentImage) {
-            ForEach(viewModel.images.indices, id: \.self) { index in
-                KFImage(viewModel.images[index].sizeURL.full)
+            ForEach(viewModel.output.indices, id: \.self) { index in
+                KFImage(viewModel.output[index].sizeURL.full)
                     .resizable()
                     .placeholder {
                         ProgressView()
@@ -104,8 +104,8 @@ private extension ImageDescriptionView {
                     .font(.system(size: 45))
                     .foregroundStyle(Color.gray)
             }
-            .opacity(currentImage == (viewModel.images.count - 1) ? 1: 0)
-            .disabled(currentImage != viewModel.images.count - 1)
+            .opacity(currentImage == (viewModel.output.count - 1) ? 1: 0)
+            .disabled(currentImage != viewModel.output.count - 1)
             .animation(.easeInOut, value: currentImage)
         }
     }
@@ -124,7 +124,7 @@ private extension ImageDescriptionView {
                     } label: {
                         Image(systemName: Consts.Texts.heartImageName)
                             .font(.system(size: 40))
-                            .foregroundStyle(viewModel.images[currentImage].isFavorite ? .red : .white)
+                            .foregroundStyle(viewModel.output[currentImage].isFavorite ? .red : .white)
                     }
                 }
             }

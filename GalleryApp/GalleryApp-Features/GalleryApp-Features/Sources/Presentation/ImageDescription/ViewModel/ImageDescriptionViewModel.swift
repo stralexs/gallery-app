@@ -20,7 +20,7 @@ protocol ImageDescriptionViewModelInput: ViewModelInput {
 
 // MARK: - Output
 protocol ImageDescriptionViewModelOutput: ViewModelOutput {
-    var images: [GalleryApp_Models.Image] { get }
+    var output: [GalleryApp_Models.Image] { get }
     var isErrorOccurred: Bool { get }
 }
 
@@ -44,7 +44,7 @@ final class DefaultImageDescriptionViewModel: ImageDescriptionViewModel {
     private var removeFromFavoritesUseCase: any RemoveFromFavoritesUseCase
     
     // MARK: Properties
-    @Published private(set) var images: [Image] = []
+    @Published private(set) var output: [Image] = []
     @Published private(set) var isErrorOccurred: Bool = false
     private(set) var subscriptions: Set<AnyCancellable> = []
     private var pagesCounter: Int = 0
@@ -62,7 +62,7 @@ final class DefaultImageDescriptionViewModel: ImageDescriptionViewModel {
 // MARK: - Input
 extension DefaultImageDescriptionViewModel {
     func setImages(_ images: [GalleryApp_Models.Image]) {
-        self.images = images
+        self.output = images
         pagesCounter = images.count / 30
     }
     
@@ -78,21 +78,21 @@ extension DefaultImageDescriptionViewModel {
                     isNetworkErrorOccurredSubject.send(true)
                 }
             } receiveValue: { [unowned self] images in
-                self.images.append(contentsOf: images)
+                self.output.append(contentsOf: images)
             }
             .store(in: &subscriptions)
     }
     
     func toggleIsFavorite(_ currentImage: Int) {
-        let image = images[currentImage]
-        let isFavorite = images[currentImage].isFavorite
+        let image = output[currentImage]
+        let isFavorite = output[currentImage].isFavorite
         if !isFavorite {
             addToFavoritesUseCase
                 .execute(request: image)
                 .sink { [unowned self] completion in
                     switch completion {
                     case .finished:
-                        images[currentImage].toggleIsFavorite()
+                        output[currentImage].toggleIsFavorite()
                     case .failure:
                         isInternalErrorOccurredSubject.send(true)
                     }
@@ -110,7 +110,7 @@ extension DefaultImageDescriptionViewModel {
                 .sink { [unowned self] completion in
                     switch completion {
                     case .finished:
-                        images[currentImage].toggleIsFavorite()
+                        output[currentImage].toggleIsFavorite()
                     case .failure:
                         isInternalErrorOccurredSubject.send(true)
                     }

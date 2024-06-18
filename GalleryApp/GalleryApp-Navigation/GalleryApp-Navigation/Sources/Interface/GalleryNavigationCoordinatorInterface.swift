@@ -12,4 +12,5 @@ protocol GalleryNavigationCoordinatorInterface: UINavigationController {
     func setBackButtonTitle(_ title: String)
     func setNavigationTitle(_ title: String)
     func disableNavigationTitle()
+    func addRightNavigationItem(target: Any?, action: Selector?)
 }

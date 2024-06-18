@@ -51,6 +51,10 @@ extension GalleryFeaturesContainer {
         self { DefaultImageDescriptionViewModel() }
     }
     
+    var userFavoriteImagesViewModel: Factory<any UserFavoriteImagesViewModel> {
+        self { DefaultUserFavoriteImagesViewModel() }
+    }
+    
     var imageCollectionViewCellViewModel: Factory<any ImageCollectionViewCellViewModel> {
         self { DefaultImageCollectionViewCellViewModel() }
     }

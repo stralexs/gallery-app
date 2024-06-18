@@ -21,7 +21,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: Injected
     @LazyInjected(\.galleryFeaturesContainer.imageCollectionViewCellViewModel)
-    private var viewModel: ImageCollectionViewCellViewModel
+    private var viewModel: any ImageCollectionViewCellViewModel
     
     // MARK: Properties
     private let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -72,21 +72,25 @@ final class ImageCollectionViewCell: UICollectionViewCell {
 // MARK: - BindableView
 extension ImageCollectionViewCell: BindableView {
     func bind(to viewModel: any ViewModel) {
-        viewModel.image
+        viewModel.output
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [unowned self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure:
-                    let warningImage = UIImage(systemName: Consts.warningImageName)
-                    imageView.image = warningImage
-                    imageView.tintColor = .black
+                    setDefaultImageWhenFailed()
                 }
             }, receiveValue: { [unowned self] image in
                 isFavoriteButton.tintColor = image.isFavorite ? .systemRed : .white
-                imageView.kf.setImage(with: image.sizeURL.small) { [weak self] _ in
+                imageView.kf.setImage(with: image.sizeURL.small) { [weak self] result in
                     guard let self else { return }
+                    switch result {
+                    case .success(let value):
+                        self.imageView.image = value.image
+                    case .failure:
+                        setDefaultImageWhenFailed()
+                    }
                     self.spinIndicator(false)
                 }
             })
@@ -129,6 +133,12 @@ private extension ImageCollectionViewCell {
             self.activityIndicator.stopAnimating()
             self.imageView.isHidden = false
         }
+    }
+    
+    func setDefaultImageWhenFailed() {
+        let warningImage = UIImage(systemName: Consts.warningImageName)
+        imageView.image = warningImage
+        imageView.tintColor = .black
     }
 }
 

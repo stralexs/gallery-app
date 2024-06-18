@@ -14,14 +14,14 @@ import Moya
 // MARK: - Input
 protocol ImagesListViewModelInput: ViewModelInput {
     var delegate: ImagesListCoordinatorInterface? { get set }
-    func getImages()
     func getMoreImages()
     func navigateToImageDescription(selectedImage: Int)
+    func navigateToUserFavoriteImages()
 }
 
 // MARK: - Output
 protocol ImagesListViewModelOutput: ViewModelOutput {
-    var images: AnyPublisher<LoadingState<[GalleryApp_Models.Image]>, Never> { get }
+    var output: AnyPublisher<LoadingState<[GalleryApp_Models.Image]>, Never> { get }
     var isLoadingMoreData: AnyPublisher<Bool, Never> { get }
 }
 
@@ -41,7 +41,7 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     // MARK: Publishers
     private let imagesSubject = CurrentValueSubject<LoadingState<[GalleryApp_Models.Image]>, Never>(.loading)
     private let isLoadingMoreDataSubject = CurrentValueSubject<Bool, Never>(false)
-    var images: AnyPublisher<LoadingState<[GalleryApp_Models.Image]>, Never> { imagesSubject.eraseToAnyPublisher() }
+    var output: AnyPublisher<LoadingState<[GalleryApp_Models.Image]>, Never> { imagesSubject.eraseToAnyPublisher() }
     var isLoadingMoreData: AnyPublisher<Bool, Never> { isLoadingMoreDataSubject.eraseToAnyPublisher() }
     
     // MARK: Properties
@@ -53,7 +53,7 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
 
 // MARK: - Input
 extension DefaultImagesListViewModel {
-    func getImages() {
+    func onViewDidLoad() {
         imagesSubject.send(.loading)
         getUserFavoriteImagesUseCase
             .execute(request: ())
@@ -116,6 +116,10 @@ extension DefaultImagesListViewModel {
         if case let .loaded(images) = imagesSubject.value {
             delegate?.navigateToImageDescription(images: images, selectedImage: selectedImage)
         }
+    }
+    
+    func navigateToUserFavoriteImages() {
+        delegate?.navigateToUserFavoriteImages()
     }
 }
 

@@ -39,6 +39,16 @@ extension GalleryNavigationController: GalleryNavigationCoordinatorInterface {
     public func disableNavigationTitle() {
         viewControllers.last?.navigationItem.largeTitleDisplayMode = .never
     }
+    
+    public func addRightNavigationItem(target: Any?, action: Selector?) {
+        let rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: Consts.heartImageName),
+            style: .plain,
+            target: target,
+            action: action
+        )
+        viewControllers.last?.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
 }
 
 // MARK: - Private
@@ -46,5 +56,13 @@ private extension GalleryNavigationController {
     func setUpNavigationBarAppearance() {
         navigationBar.tintColor = .black
         navigationBar.prefersLargeTitles = true
+//        navigationBar.backgroundColor = .gray
+    }
+}
+
+// MARK: - Consts
+private extension GalleryNavigationController {
+    enum Consts {
+        static let heartImageName = "heart.fill"
     }
 }

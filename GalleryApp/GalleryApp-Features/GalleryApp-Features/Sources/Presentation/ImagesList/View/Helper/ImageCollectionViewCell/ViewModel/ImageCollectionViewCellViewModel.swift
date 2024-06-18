@@ -19,7 +19,7 @@ public protocol ImageCollectionViewCellViewModelInput: ViewModelInput {
 
 // MARK: - Output
 public protocol ImageCollectionViewCellViewModelOutput: ViewModelOutput {
-    var image: AnyPublisher<GalleryApp_Models.Image, CoreDataError> { get }
+    var output: AnyPublisher<GalleryApp_Models.Image, CoreDataError> { get }
 }
 
 // MARK: - ImageCollectionViewCellViewModel
@@ -41,7 +41,7 @@ final class DefaultImageCollectionViewCellViewModel: ImageCollectionViewCellView
     
     // MARK: Publishers
     private let imageSubject = CurrentValueSubject<GalleryApp_Models.Image?, CoreDataError>(nil)
-    var image: AnyPublisher<GalleryApp_Models.Image, CoreDataError> {
+    var output: AnyPublisher<GalleryApp_Models.Image, CoreDataError> {
         imageSubject
             .compactMap { $0 }
             .eraseToAnyPublisher()

@@ -47,6 +47,11 @@ extension ImagesListCoordinator: ImagesListCoordinatorInterface {
     }
     
     func navigateToUserFavoriteImages() {
-        
+        let coordinator = UserFavoriteImagesCoordinator(
+            coordinatorDependencies: coordinatorDependencies,
+            navigationController: navigationController,
+            delegate: self)
+        coordinatorDependencies.add(dependency: coordinator)
+        coordinator.start()
     }
 }
