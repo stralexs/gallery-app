@@ -15,6 +15,7 @@ import GalleryApp_Core
 struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
     
     // MARK: Properties
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @StateObject private var viewModel: ViewModel
     @State private var currentImage: Int
     
@@ -31,6 +32,17 @@ struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
     
     // MARK: Body
     var body: some View {
+        if verticalSizeClass == .regular {
+            portraitView
+        } else {
+            landscapeView
+        }
+    }
+}
+
+// MARK: - Components
+private extension ImageDescriptionView {
+    var portraitView: some View {
         VStack(spacing: Consts.Layouts.stackSpacing) {
             ZStack {
                 tabView
@@ -44,23 +56,7 @@ struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
                 numberOfPages: viewModel.output.count,
                 currentPage: $currentImage)
                 .animation(.easeInOut, value: currentImage)
-            Text(viewModel.output[currentImage].description)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .multilineTextAlignment(.center)
-                .font(.system(.body, design: .default).italic())
-                .animation(.easeInOut, value: currentImage)
-                .padding(.horizontal)
-            Text(viewModel.output[currentImage].createdAt)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .multilineTextAlignment(.center)
-                .font(.system(.body, design: .default).italic())
-                .animation(.easeInOut, value: currentImage)
-                .padding(.horizontal)
-            Text(Consts.Texts.byKeyword + " " + viewModel.output[currentImage].creatorName)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .multilineTextAlignment(.center)
-                .font(.system(.body, design: .default).italic())
-                .animation(.easeInOut, value: currentImage)
+            description
                 .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -71,10 +67,39 @@ struct ImageDescriptionView<ViewModel: ImageDescriptionViewModel>: View {
                 viewModel.retryAction(currentImage)
         }))
     }
-}
-
-// MARK: - Components
-private extension ImageDescriptionView {
+    
+    var landscapeView: some View {
+        GeometryReader { proxy in
+            HStack {
+                VStack {
+                    ZStack {
+                        tabView
+                            .frame(height: Consts.Layouts.tabViewHeight)
+                        downloadMoreButton
+                            .padding(.horizontal)
+                        heartImage
+                            .padding()
+                    }
+                    SUIPageControl(
+                        numberOfPages: viewModel.output.count,
+                        currentPage: $currentImage)
+                        .animation(.easeInOut, value: currentImage)
+                }
+                .frame(width: proxy.size.width * Consts.Layouts.landscapeImageRatio)
+                description
+            }
+            .padding(.vertical)
+            .ignoresSafeArea(edges: .leading)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.gray.opacity(Consts.Layouts.backgroundColorOpacity))
+            .modifier(ErrorViewModifier(
+                isErrorOccurred: viewModel.isErrorOccurred,
+                retryAction: {
+                    viewModel.retryAction(currentImage)
+            }))
+        }
+    }
+    
     var tabView: some View {
         TabView(selection: $currentImage) {
             ForEach(viewModel.output.indices, id: \.self) { index in
@@ -130,6 +155,26 @@ private extension ImageDescriptionView {
             }
         }
     }
+    
+    var description: some View {
+        VStack {
+            Text(viewModel.output[currentImage].description)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .multilineTextAlignment(.center)
+                .font(.system(.body, design: .default).italic())
+                .animation(.easeInOut, value: currentImage)
+            Text(viewModel.output[currentImage].createdAt)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .multilineTextAlignment(.center)
+                .font(.system(.body, design: .default).italic())
+                .animation(.easeInOut, value: currentImage)
+            Text(Consts.Texts.byKeyword + " " + viewModel.output[currentImage].creatorName)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .multilineTextAlignment(.center)
+                .font(.system(.body, design: .default).italic())
+                .animation(.easeInOut, value: currentImage)
+        }
+    }
 }
 
 // MARK: - Consts
@@ -139,7 +184,9 @@ private extension ImageDescriptionView {
             static var backgroundColorOpacity: CGFloat { 0.2 }
             static var stackSpacing: CGFloat { 10 }
             static var imageCornerRadius: CGFloat { 10 }
-            static var tabViewHeight: CGFloat { UIScreen.main.bounds.height / 1.5 }
+            static var tabViewHeight: CGFloat { UIScreen.main.bounds.height * 0.7 }
+            static var landscapeImageRatio: CGFloat { 0.7 }
+            static var landscapeVStackSpacing: CGFloat { 20 }
         }
         
         enum Texts {
