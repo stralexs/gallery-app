@@ -54,7 +54,24 @@ final class DefaultImageCollectionViewCellViewModel: ImageCollectionViewCellView
 // MARK: - Input
 extension DefaultImageCollectionViewCellViewModel {
     func set(_ image: GalleryApp_Models.Image) {
-        imageSubject.send(image)
+        getUserFavoriteImagesUseCase
+            .execute(request: ())
+            .sink { [unowned self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    imageSubject.send(completion: .failure(error))
+                }
+            } receiveValue: { [unowned self] favorits in
+                let ids = favorits.map { $0.id }
+                var toggledImage = image
+                if ids.contains(image.id) {
+                    toggledImage.toggleIsFavorite()
+                }
+                imageSubject.send(toggledImage)
+            }
+            .store(in: &subscriptions)
     }
     
     func toggleIsFavorite() {

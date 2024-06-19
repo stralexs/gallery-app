@@ -35,9 +35,6 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     @LazyInjected(\.galleryFeaturesContainer.getImagesUseCase)
     private var getImagesUseCase: any GetImagesUseCase
     
-    @LazyInjected(\.galleryFeaturesContainer.getUserFavoriteImagesUseCase)
-    private var getUserFavoriteImagesUseCase: any GetUserFavoriteImagesUseCase
-    
     // MARK: Publishers
     private let imagesSubject = CurrentValueSubject<LoadingState<[GalleryApp_Models.Image]>, Never>(.loading)
     private let isLoadingMoreDataSubject = CurrentValueSubject<Bool, Never>(false)
@@ -47,7 +44,6 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     // MARK: Properties
     private(set) var subscriptions: Set<AnyCancellable> = []
     private var pagesCounter: Int = 1
-    private var favoriteImagesIDs: Set<String> = []
     weak var delegate: ImagesListCoordinatorInterface?
 }
 
@@ -55,15 +51,8 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
 extension DefaultImagesListViewModel {
     func onViewDidLoad() {
         imagesSubject.send(.loading)
-        getUserFavoriteImagesUseCase
-            .execute(request: ())
-            .mapError { error in
-                MoyaError.underlying(error, nil)
-            }
-            .flatMap { [unowned self] favorites -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> in
-                favoriteImagesIDs = Set(favorites.map { $0.id })
-                return getImagesUseCase.execute(request: pagesCounter)
-            }
+        getImagesUseCase
+            .execute(request: pagesCounter)
             .sink { [unowned self] completion in
                 switch completion {
                 case .finished:
@@ -72,8 +61,7 @@ extension DefaultImagesListViewModel {
                     imagesSubject.send(.failed)
                 }
             } receiveValue: { [unowned self] images in
-                let mappedImages = mapFavorites(through: images)
-                self.imagesSubject.send(.loaded(mappedImages))
+                imagesSubject.send(.loaded(images))
             }
             .store(in: &subscriptions)
     }
@@ -82,15 +70,8 @@ extension DefaultImagesListViewModel {
         guard !isLoadingMoreDataSubject.value else { return }
         pagesCounter += 1
         isLoadingMoreDataSubject.send(true)
-        getUserFavoriteImagesUseCase
-            .execute(request: ())
-            .mapError { error in
-                MoyaError.underlying(error, nil)
-            }
-            .flatMap { [unowned self] favorites -> AnyPublisher<[GalleryApp_Models.Image], MoyaError> in
-                favoriteImagesIDs = Set(favorites.map { $0.id })
-                return getImagesUseCase.execute(request: pagesCounter)
-            }
+        getImagesUseCase
+            .execute(request: pagesCounter)
             .sink { [unowned self] completion in
                 switch completion {
                 case .finished:
@@ -104,8 +85,7 @@ extension DefaultImagesListViewModel {
                     let existingIds = Set(currentImages.map { $0.id })
                     let filteredImages = images.filter { !existingIds.contains($0.id) }
                     currentImages.append(contentsOf: filteredImages)
-                    let mappedImages = mapFavorites(through: currentImages)
-                    imagesSubject.send(.loaded(mappedImages))
+                    imagesSubject.send(.loaded(currentImages))
                 }
                 isLoadingMoreDataSubject.send(false)
             }
@@ -120,18 +100,5 @@ extension DefaultImagesListViewModel {
     
     func navigateToUserFavoriteImages() {
         delegate?.navigateToUserFavoriteImages()
-    }
-}
-
-// MARK: - Private
-private extension DefaultImagesListViewModel {
-    func mapFavorites(through images: [GalleryApp_Models.Image]) -> [GalleryApp_Models.Image] {
-        images.map { image in
-            var toggledImage = image
-            if favoriteImagesIDs.contains(image.id) {
-                toggledImage.toggleIsFavorite()
-            }
-            return toggledImage
-        }
     }
 }

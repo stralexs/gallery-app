@@ -73,4 +73,8 @@ extension GalleryFeaturesContainer {
     var getImagesDTOToDomainMapper: Factory<GetImagesDTOToDomainMapper> {
         self { GetImagesDTOToDomainMapper() }
     }
+    
+    var addToFavoritesDomainToDTOMapper: Factory<AddToFavoritesDomainToDTOMapper> {
+        self { AddToFavoritesDomainToDTOMapper() }
+    }
 }

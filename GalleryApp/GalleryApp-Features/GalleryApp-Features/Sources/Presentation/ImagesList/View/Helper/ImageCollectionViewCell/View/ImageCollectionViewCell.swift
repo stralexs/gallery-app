@@ -83,14 +83,8 @@ extension ImageCollectionViewCell: BindableView {
                 }
             }, receiveValue: { [unowned self] image in
                 isFavoriteButton.tintColor = image.isFavorite ? .systemRed : .white
-                imageView.kf.setImage(with: image.sizeURL.small) { [weak self] result in
+                imageView.kf.setImage(with: image.sizeURL.small) { [weak self] _ in
                     guard let self else { return }
-                    switch result {
-                    case .success(let value):
-                        self.imageView.image = value.image
-                    case .failure:
-                        setDefaultImageWhenFailed()
-                    }
                     self.spinIndicator(false)
                 }
             })

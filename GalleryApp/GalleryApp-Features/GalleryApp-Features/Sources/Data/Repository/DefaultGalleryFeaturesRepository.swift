@@ -9,6 +9,7 @@ import Factory
 import Combine
 import Moya
 import GalleryApp_Models
+import GalleryApp_CoreData
 
 // MARK: - DefaultGalleryFeaturesRepository
 final class DefaultGalleryFeaturesRepository {
@@ -19,6 +20,9 @@ final class DefaultGalleryFeaturesRepository {
     
     @LazyInjected(\.galleryFeaturesContainer.getImagesDTOToDomainMapper)
     private var getImagesDTOToDomainMapper: GetImagesDTOToDomainMapper
+    
+    @LazyInjected(\.galleryFeaturesContainer.addToFavoritesDomainToDTOMapper)
+    private var addToFavoritesDomainToDTOMapper: AddToFavoritesDomainToDTOMapper
 }
 
 // MARK: - GalleryFeaturesRepository
@@ -37,7 +41,8 @@ extension DefaultGalleryFeaturesRepository: GalleryFeaturesRepository {
     }
     
     func addToFavorites(requestDTO: GalleryApp_Models.Image) -> AnyPublisher<Void, CoreDataError> {
-        galleryFeaturesDataSource.addToFavorites(requestDTO: requestDTO)
+        galleryFeaturesDataSource
+            .addToFavorites(requestDTO: addToFavoritesDomainToDTOMapper.mapModel(requestDTO))
     }
     
     func removeFromFavorites(requestDTO: FavoriteImage) -> AnyPublisher<Void, CoreDataError> {

@@ -8,18 +8,9 @@
 import Factory
 import GalleryApp_Core
 import GalleryApp_Models
-import GalleryApp_CoreData
 
 // MARK: - GetImagesDTOToDomainMapper
-final class GetImagesDTOToDomainMapper {
-    
-    // MARK: Injected
-    @LazyInjected(\.coreDataManager)
-    private var coreDataManager: CoreDataManagerInterface
-}
-
-// MARK: - Mapper
-extension GetImagesDTOToDomainMapper: Mapper {
+final class GetImagesDTOToDomainMapper: Mapper {
     func mapModel(_ model: [ImageDTO]) -> [GalleryApp_Models.Image] {
         model.map {
             GalleryApp_Models.Image(
@@ -29,7 +20,7 @@ extension GetImagesDTOToDomainMapper: Mapper {
                 creatorName: $0.user.name,
                 sizeURL: ImageSizeURL(
                     small: $0.urls.small,
-                    full:$0.urls.full), 
+                    full:$0.urls.full),
                 isFavorite: false
             )
         }

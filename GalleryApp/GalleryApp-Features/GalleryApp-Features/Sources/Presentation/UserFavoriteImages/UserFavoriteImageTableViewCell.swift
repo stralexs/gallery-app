@@ -43,14 +43,8 @@ final class UserFavoriteImageTableViewCell: UITableViewCell {
     
     // MARK: Methods
     func configure(with imageUrl: URL) {
-        cellImageView.kf.setImage(with: imageUrl) { [weak self] result in
+        cellImageView.kf.setImage(with: imageUrl) { [weak self] _ in
             guard let self else { return }
-            switch result {
-            case .success(let value):
-                self.cellImageView.image = value.image
-            case .failure:
-                self.setDefaultImageWhenFailed()
-            }
             spinIndicator(false)
         }
     }
