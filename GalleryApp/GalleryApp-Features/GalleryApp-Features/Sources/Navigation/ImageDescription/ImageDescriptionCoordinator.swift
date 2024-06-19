@@ -29,7 +29,7 @@ final class ImageDescriptionCoordinator: NavigationCoordinator {
     // MARK: Initializer
     init(
         coordinatorDependencies: CoordinatorDependencies,
-        navigationController: UINavigationController,
+        navigationController: GalleryNavigationCoordinatorInterface,
         delegate: CoordinatorFlowListener,
         images: [GalleryApp_Models.Image],
         selectedImage: Int

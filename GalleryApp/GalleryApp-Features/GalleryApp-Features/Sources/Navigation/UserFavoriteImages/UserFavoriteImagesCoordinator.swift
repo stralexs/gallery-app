@@ -22,7 +22,7 @@ final class UserFavoriteImagesCoordinator: NavigationCoordinator {
     // MARK: Initializer
     init(
         coordinatorDependencies: CoordinatorDependencies,
-        navigationController: UINavigationController,
+        navigationController: GalleryNavigationCoordinatorInterface,
         delegate: CoordinatorFlowListener
     ) {
         super.init(

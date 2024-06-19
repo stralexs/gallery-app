@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - GalleryNavigationCoordinatorInterface
-protocol GalleryNavigationCoordinatorInterface: UINavigationController {
+public protocol GalleryNavigationCoordinatorInterface: UINavigationController {
     func setBackButtonTitle(_ title: String)
     func setNavigationTitle(_ title: String)
     func disableNavigationTitle()

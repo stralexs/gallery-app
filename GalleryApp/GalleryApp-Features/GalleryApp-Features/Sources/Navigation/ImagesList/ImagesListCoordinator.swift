@@ -22,7 +22,7 @@ public final class ImagesListCoordinator: NavigationCoordinator {
     // MARK: Initializer
     public init(
         coordinatorDependencies: CoordinatorDependencies,
-        navigationController: UINavigationController,
+        navigationController: GalleryNavigationCoordinatorInterface,
         delegate: CoordinatorFlowListener
     ) {
         super.init(

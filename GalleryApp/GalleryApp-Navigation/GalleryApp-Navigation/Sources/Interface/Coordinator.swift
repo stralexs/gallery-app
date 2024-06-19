@@ -13,7 +13,7 @@ public protocol Coordinator: AnyObject {
     // MARK: Properties
     var delegate: CoordinatorFlowListener? { get set }
     var startViewController: UIViewController? { get }
-    var navigationController: UINavigationController { get }
+    var navigationController: GalleryNavigationCoordinatorInterface { get }
     var coordinatorDependencies: CoordinatorDependencies { get }
     
     // MARK: Methods

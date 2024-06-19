@@ -15,7 +15,7 @@ open class NavigationCoordinator: NSObject, Coordinator {
     
     // MARK: Navigation
     public weak var startViewController: UIViewController?
-    public let navigationController: UINavigationController
+    public let navigationController: GalleryNavigationCoordinatorInterface
     
     // MARK: Dependecies
     public let coordinatorDependencies: CoordinatorDependencies
@@ -23,7 +23,7 @@ open class NavigationCoordinator: NSObject, Coordinator {
     // MARK: Initializer
     public init(
         coordinatorDependencies: CoordinatorDependencies = DefaultCoordinatorDependencies(),
-        navigationController: UINavigationController,
+        navigationController: GalleryNavigationCoordinatorInterface,
         delegate: CoordinatorFlowListener?
     ) {
         self.coordinatorDependencies = coordinatorDependencies
