@@ -59,6 +59,7 @@ private extension ImageDescriptionView {
             description
                 .padding(.horizontal)
         }
+        .padding(.bottom)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.gray.opacity(Consts.Layouts.backgroundColorOpacity))
         .modifier(ErrorViewModifier(
@@ -88,6 +89,7 @@ private extension ImageDescriptionView {
                 .frame(width: proxy.size.width * Consts.Layouts.landscapeImageRatio)
                 description
             }
+            .padding(.trailing)
             .padding(.vertical)
             .ignoresSafeArea(edges: .leading)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
