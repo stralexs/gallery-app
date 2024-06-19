@@ -88,6 +88,16 @@ extension ImagesListViewController {
         super.viewWillAppear(animated)
         setUpAppearance()
     }
+    
+    override func viewWillTransition(
+        to size: CGSize,
+        with coordinator: UIViewControllerTransitionCoordinator
+    ) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
+    }
 }
 
 // MARK: - BindableView
@@ -147,6 +157,19 @@ extension ImagesListViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ImagesListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let isPortrait = traitCollection.verticalSizeClass == .regular
+        let numberOfItemsPerRow: CGFloat = isPortrait ? 3 : 5
+        let spacing = Consts.collectionViewSpacing * (numberOfItemsPerRow - 1)
+        let availableWidth = collectionView.bounds.width - spacing
+        let width = availableWidth / numberOfItemsPerRow
+        return CGSize(width: width, height: width)
+    }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
