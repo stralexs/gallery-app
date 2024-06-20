@@ -6,7 +6,7 @@
 //
 
 // MARK: - Mapper
-public protocol Mapper<Source, Destination> {
+public protocol Mapper {
     
     // MARK: Associatedtype
     associatedtype Source

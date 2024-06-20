@@ -15,7 +15,7 @@ final class GetImagesDTOToDomainMapper: Mapper {
         model.map {
             GalleryApp_Models.Image(
                 id: $0.id,
-                description: $0.altDescription,
+                description: $0.altDescription ?? .empty,
                 createdAt: formatDate($0.createdAt),
                 creatorName: $0.user.name,
                 sizeURL: ImageSizeURL(

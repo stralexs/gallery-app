@@ -35,6 +35,9 @@ final class DefaultImagesListViewModel: ImagesListViewModel {
     @LazyInjected(\.galleryFeaturesContainer.getImagesUseCase)
     private var getImagesUseCase: any GetImagesUseCase
     
+    @LazyInjected(\.galleryFeaturesContainer.getUserFavoriteImagesUseCase)
+    private var getUserFavoriteImagesUseCase: any GetUserFavoriteImagesUseCase
+    
     // MARK: Publishers
     private let imagesSubject = CurrentValueSubject<LoadingState<[GalleryApp_Models.Image]>, Never>(.loading)
     private let isLoadingMoreDataSubject = CurrentValueSubject<Bool, Never>(false)
@@ -62,6 +65,33 @@ extension DefaultImagesListViewModel {
                 }
             } receiveValue: { [unowned self] images in
                 imagesSubject.send(.loaded(images))
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func onViewWillAppear() {
+        getUserFavoriteImagesUseCase
+            .execute(request: ())
+            .sink { [unowned self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure:
+                    imagesSubject.send(.failed)
+                }
+            } receiveValue: { [unowned self] favorits in
+                if case let .loaded(currentImages) = imagesSubject.value {
+                    let ids = favorits.map { $0.id }
+                    let toggledImages = currentImages.map { image in
+                        var toggledImage = image
+                        if ids.contains(image.id) && image.isFavorite {
+                            toggledImage.toggleIsFavorite()
+                        }
+                        return toggledImage
+                    }
+                    imagesSubject.send(.loaded([]))
+                    imagesSubject.send(.loaded(toggledImages))
+                }
             }
             .store(in: &subscriptions)
     }

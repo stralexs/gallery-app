@@ -10,7 +10,7 @@ import Foundation
 // MARK: - ImageDTO
 public struct ImageDTO: Decodable {
     public let id: String
-    public let altDescription: String
+    public let altDescription: String?
     public let createdAt: String
     public let user: User
     public let urls: ImageURL

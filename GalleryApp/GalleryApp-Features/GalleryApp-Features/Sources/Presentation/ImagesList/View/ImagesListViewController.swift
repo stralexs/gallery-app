@@ -87,6 +87,7 @@ extension ImagesListViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpAppearance()
+        viewModel.onViewWillAppear()
     }
     
     override func viewWillTransition(
@@ -134,10 +135,7 @@ extension ImagesListViewController: BindableView {
 
 // MARK: - UICollectionViewDelegate
 extension ImagesListViewController {
-    override func collectionView(
-        _ collectionView: UICollectionView,
-        didSelectItemAt indexPath: IndexPath
-    ) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.navigateToImageDescription(selectedImage: indexPath.row)
     }
 }

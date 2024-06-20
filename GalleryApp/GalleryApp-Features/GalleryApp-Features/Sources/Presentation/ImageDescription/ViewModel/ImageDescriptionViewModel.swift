@@ -62,8 +62,28 @@ final class DefaultImageDescriptionViewModel: ImageDescriptionViewModel {
 // MARK: - Input
 extension DefaultImageDescriptionViewModel {
     func setImages(_ images: [GalleryApp_Models.Image]) {
-        self.output = images
-        pagesCounter = images.count / 30
+        getUserFavoriteImagesUseCase
+            .execute(request: ())
+            .sink { [unowned self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure:
+                    isInternalErrorOccurredSubject.send(true)
+                }
+            } receiveValue: { [unowned self] favorits in
+                let ids = favorits.map { $0.id }
+                let toggledImages = images.map { image in
+                    var toggledImage = image
+                    if ids.contains(image.id) && !image.isFavorite {
+                        toggledImage.toggleIsFavorite()
+                    }
+                    return toggledImage
+                }
+                output = toggledImages
+                pagesCounter = toggledImages.count / 30
+            }
+            .store(in: &subscriptions)
     }
     
     func getMoreImages() {

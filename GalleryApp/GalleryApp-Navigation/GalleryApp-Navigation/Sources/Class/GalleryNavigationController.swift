@@ -56,7 +56,6 @@ private extension GalleryNavigationController {
     func setUpNavigationBarAppearance() {
         navigationBar.tintColor = .black
         navigationBar.prefersLargeTitles = true
-//        navigationBar.backgroundColor = .gray
     }
 }
 
