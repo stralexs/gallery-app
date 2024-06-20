@@ -69,7 +69,7 @@ extension DefaultImagesListViewModel {
             .store(in: &subscriptions)
     }
     
-    func onViewWillAppear() {
+    func onViewIsAppearing() {
         getUserFavoriteImagesUseCase
             .execute(request: ())
             .sink { [unowned self] completion in

@@ -23,6 +23,8 @@ final class ImagesListViewController: UICollectionViewController {
     private let viewModel: any ImagesListViewModel
     private(set) var subscriptions: Set<AnyCancellable> = []
     private var isFetchingImages = false
+    private var isFirstAppear = false
+    private var lastContentOffset: CGPoint = .zero
     
     private let loadingView = LoadingView()
     private let errorView = ErrorView()
@@ -84,10 +86,16 @@ extension ImagesListViewController {
         viewModel.onViewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
         setUpAppearance()
-        viewModel.onViewWillAppear()
+        viewModel.onViewIsAppearing()
+        isFirstAppear.toggle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isFirstAppear.toggle()
     }
     
     override func viewWillTransition(
@@ -98,6 +106,11 @@ extension ImagesListViewController {
         coordinator.animate(alongsideTransition: { _ in
             self.collectionView.collectionViewLayout.invalidateLayout()
         }, completion: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveContentOffset()
     }
 }
 
@@ -115,7 +128,8 @@ extension ImagesListViewController: BindableView {
                     var snapshot = NSDiffableDataSourceSnapshot<Int, GalleryApp_Models.Image>()
                     snapshot.appendSections([.zero])
                     snapshot.appendItems(images)
-                    diffableDataSource.apply(snapshot, animatingDifferences: true)
+                    diffableDataSource.apply(snapshot, animatingDifferences: false)
+                    if isFirstAppear { collectionView.setContentOffset(lastContentOffset, animated: false) }
                 case .failed:
                     showErrorView()
                 @unknown default:
@@ -226,6 +240,10 @@ private extension ImagesListViewController {
     
     @objc func rightButtonTapped() {
         viewModel.navigateToUserFavoriteImages()
+    }
+    
+    func saveContentOffset() {
+        lastContentOffset = collectionView.contentOffset
     }
 }
 

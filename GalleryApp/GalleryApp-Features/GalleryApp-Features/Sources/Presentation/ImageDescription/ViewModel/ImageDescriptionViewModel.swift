@@ -47,7 +47,7 @@ final class DefaultImageDescriptionViewModel: ImageDescriptionViewModel {
     @Published private(set) var output: [Image] = []
     @Published private(set) var isErrorOccurred: Bool = false
     private(set) var subscriptions: Set<AnyCancellable> = []
-    private var pagesCounter: Int = 0
+    private var pagesCounter: Int = .zero
     
     // MARK: Publishers
     private let isNetworkErrorOccurredSubject = CurrentValueSubject<Bool, Never>(false)

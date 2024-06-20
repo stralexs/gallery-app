@@ -10,12 +10,12 @@ import Foundation
 // MARK: - ViewModelInput
 public protocol ViewModelInput {
     func onViewDidLoad()
-    func onViewWillAppear()
+    func onViewIsAppearing()
 }
 
 public extension ViewModelInput {
     func onViewDidLoad() {}
-    func onViewWillAppear() {}
+    func onViewIsAppearing() {}
 }
 
 // MARK: - ViewModelOutput
