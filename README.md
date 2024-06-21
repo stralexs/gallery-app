@@ -44,10 +44,11 @@ In Features module there is a MVVM+Clean architecture:
 - Presentation layer with MVVM architecture pattern
 - Domain layer which sets high-level business rules and use cases
 - Data layer for retrieving data from database or network
-- Repository and mappers as a sublayer between Domain and Data layers to transform DTO models to domain and vice versa
-More about this architecture [here](https://tech.olx.com/clean-architecture-and-mvvm-on-ios-c9d167d9f5b3)
+- Repository and mappers as a sublayer between Domain and Data layers to transform DTO models to domain and vice versa  
 
-Application uses Combine for reactive updates of UI.
-Coordinator pattern is used to perform navigation.
-Factory library is used to inject dependencies.
+More about this architecture [here](https://tech.olx.com/clean-architecture-and-mvvm-on-ios-c9d167d9f5b3)  
+
+Application uses Combine for reactive updates of UI.  
+Coordinator pattern is used to perform navigation.  
+Factory library is used to inject dependencies.  
 Tests are written for Features module.
