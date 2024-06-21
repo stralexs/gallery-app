@@ -1,4 +1,4 @@
-# GalleryApp
+# Gallery App
 
 ![1](https://github.com/stralexs/gallery-app/assets/123239625/4951ccb4-816f-4b65-bd02-c7b2de92c393)
 
