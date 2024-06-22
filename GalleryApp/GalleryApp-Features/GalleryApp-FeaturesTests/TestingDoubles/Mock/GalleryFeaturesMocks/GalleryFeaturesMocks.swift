@@ -44,7 +44,7 @@ enum GalleryFeaturesMocks {
             isFavorite: true
         ),
         .init(
-            id: "Foo",
+            id: "Foo2",
             description: "Bar",
             createdAt: "Baz",
             creatorName: "Foo",
@@ -59,7 +59,7 @@ enum GalleryFeaturesMocks {
             context: Container.shared.coreDataManager.resolve().viewContext
         ),
         .init(
-            id: "Foo",
+            id: "Foo2",
             fullSizeURLString: "Bar",
             context: Container.shared.coreDataManager.resolve().viewContext
         )

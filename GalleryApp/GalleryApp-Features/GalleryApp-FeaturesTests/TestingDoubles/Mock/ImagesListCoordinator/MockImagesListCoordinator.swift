@@ -12,9 +12,11 @@ import GalleryApp_Models
 // MARK: - MockImagesListCoordinator
 final class MockImagesListCoordinator: ImagesListCoordinatorInterface {
     
+    // MARK: Properties
     var isNavigatedToImageDescription = false
     var isNavigatedToUserFavoriteImages = false
     
+    // MARK: Methods
     func navigateToImageDescription(images: [GalleryApp_Models.Image], selectedImage: Int) {
         isNavigatedToImageDescription = true
     }

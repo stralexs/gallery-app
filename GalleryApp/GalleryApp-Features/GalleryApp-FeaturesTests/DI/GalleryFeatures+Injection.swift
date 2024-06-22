@@ -75,6 +75,10 @@ extension GalleryFeaturesContainer {
                 coreDataError: coreDataError
             )
         }
+        
+        shared.imagesListViewModel.register {
+            StubImagesListViewModel()
+        }
     }
 }
 

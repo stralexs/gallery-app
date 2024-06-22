@@ -54,6 +54,10 @@
 		426E98252C26DA9200B82057 /* ImagesListBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E98242C26DA9200B82057 /* ImagesListBuilderTests.swift */; };
 		426E98272C26DCE400B82057 /* ImageDescriptionBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E98262C26DCE400B82057 /* ImageDescriptionBuilderTests.swift */; };
 		426E98292C26DD6F00B82057 /* UserFavoriteImagesBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E98282C26DD6F00B82057 /* UserFavoriteImagesBuilderTests.swift */; };
+		426E982C2C26E04C00B82057 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 426E982B2C26E04C00B82057 /* SnapshotTesting */; };
+		426E982F2C26E0E900B82057 /* ImagesListViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E982E2C26E0E900B82057 /* ImagesListViewControllerSnapshotTests.swift */; };
+		426E98322C26E5F100B82057 /* StubImagesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E98312C26E5F100B82057 /* StubImagesListViewModel.swift */; };
+		426E98382C26FA7F00B82057 /* ImageCollectionViewCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426E98372C26FA7F00B82057 /* ImageCollectionViewCellSnapshotTests.swift */; };
 		427427552C1ECF36004364B1 /* GalleryApp_CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427427542C1ECF36004364B1 /* GalleryApp_CoreData.framework */; };
 		427427652C1EE43B004364B1 /* GetUserFavoriteImagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427427642C1EE43B004364B1 /* GetUserFavoriteImagesUseCase.swift */; };
 		42AA21C12C2054A8007290C2 /* SUIErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA21C02C2054A8007290C2 /* SUIErrorView.swift */; };
@@ -146,6 +150,9 @@
 		426E98242C26DA9200B82057 /* ImagesListBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListBuilderTests.swift; sourceTree = "<group>"; };
 		426E98262C26DCE400B82057 /* ImageDescriptionBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDescriptionBuilderTests.swift; sourceTree = "<group>"; };
 		426E98282C26DD6F00B82057 /* UserFavoriteImagesBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoriteImagesBuilderTests.swift; sourceTree = "<group>"; };
+		426E982E2C26E0E900B82057 /* ImagesListViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		426E98312C26E5F100B82057 /* StubImagesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubImagesListViewModel.swift; sourceTree = "<group>"; };
+		426E98372C26FA7F00B82057 /* ImageCollectionViewCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCellSnapshotTests.swift; sourceTree = "<group>"; };
 		427427542C1ECF36004364B1 /* GalleryApp_CoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GalleryApp_CoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		427427642C1EE43B004364B1 /* GetUserFavoriteImagesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserFavoriteImagesUseCase.swift; sourceTree = "<group>"; };
 		42AA21C02C2054A8007290C2 /* SUIErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SUIErrorView.swift; path = View/Helper/SUIErrorView.swift; sourceTree = "<group>"; };
@@ -203,6 +210,7 @@
 				42FE3F6B2C245B560050A269 /* GalleryApp_Features.framework in Frameworks */,
 				42FE3F772C245B940050A269 /* Factory in Frameworks */,
 				42FE3F7E2C245CB00050A269 /* Moya in Frameworks */,
+				426E982C2C26E04C00B82057 /* SnapshotTesting in Frameworks */,
 				42FE3F802C245CE70050A269 /* GalleryApp_Models.framework in Frameworks */,
 				42FE3FA82C2467150050A269 /* GalleryApp_CoreData.framework in Frameworks */,
 				42FE3FA12C2464FF0050A269 /* GalleryApp_Network.framework in Frameworks */,
@@ -561,6 +569,45 @@
 			path = ImagesListCoordinator;
 			sourceTree = "<group>";
 		};
+		426E982D2C26E0C500B82057 /* Snapshot */ = {
+			isa = PBXGroup;
+			children = (
+				426E982E2C26E0E900B82057 /* ImagesListViewControllerSnapshotTests.swift */,
+				426E98372C26FA7F00B82057 /* ImageCollectionViewCellSnapshotTests.swift */,
+			);
+			path = Snapshot;
+			sourceTree = "<group>";
+		};
+		426E98302C26E5CB00B82057 /* ImagesListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				426E98312C26E5F100B82057 /* StubImagesListViewModel.swift */,
+			);
+			path = ImagesListViewModel;
+			sourceTree = "<group>";
+		};
+		426E98332C26F8CD00B82057 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				42FE3FB22C2474CF0050A269 /* DefaultGetImagesUseCaseTests.swift */,
+				42FE3FBA2C24777F0050A269 /* DefaultGetUserFavoriteImagesUseCaseTests.swift */,
+				42FE3FBC2C247AAD0050A269 /* DefaultAddToFavoritesUseCaseTests.swift */,
+				42FE3FBE2C247F1F0050A269 /* DefaultRemoveFromFavoritesUseCaseTests.swift */,
+				42FE3FC02C2480050050A269 /* DefaultGalleryFeaturesRepositoryTests.swift */,
+				424743122C25AF6600CCED3C /* DefaultGalleryFeaturesDataSourceTests.swift */,
+				4210C11D2C25B238009C4D26 /* GetImagesDTOToDomainMapperTests.swift */,
+				4210C11F2C25B3CE009C4D26 /* AddToFavoritesDomainToDTOMapperTests.swift */,
+				4210C1232C25B67A009C4D26 /* DefaultImagesListViewModelTests.swift */,
+				426E981E2C26CBCC00B82057 /* DefaultImageDescriptionViewModelTests.swift */,
+				426E98202C26D21600B82057 /* DefaultUserFavoriteImagesViewModelTests.swift */,
+				426E98222C26D39900B82057 /* DefaultImageCollectionViewCellViewModelTests.swift */,
+				426E98242C26DA9200B82057 /* ImagesListBuilderTests.swift */,
+				426E98262C26DCE400B82057 /* ImageDescriptionBuilderTests.swift */,
+				426E98282C26DD6F00B82057 /* UserFavoriteImagesBuilderTests.swift */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
 		42EE83662C1DE38D004CC93C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,21 +649,8 @@
 		42FE3F732C245B7C0050A269 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				42FE3FB22C2474CF0050A269 /* DefaultGetImagesUseCaseTests.swift */,
-				42FE3FBA2C24777F0050A269 /* DefaultGetUserFavoriteImagesUseCaseTests.swift */,
-				42FE3FBC2C247AAD0050A269 /* DefaultAddToFavoritesUseCaseTests.swift */,
-				42FE3FBE2C247F1F0050A269 /* DefaultRemoveFromFavoritesUseCaseTests.swift */,
-				42FE3FC02C2480050050A269 /* DefaultGalleryFeaturesRepositoryTests.swift */,
-				424743122C25AF6600CCED3C /* DefaultGalleryFeaturesDataSourceTests.swift */,
-				4210C11D2C25B238009C4D26 /* GetImagesDTOToDomainMapperTests.swift */,
-				4210C11F2C25B3CE009C4D26 /* AddToFavoritesDomainToDTOMapperTests.swift */,
-				4210C1232C25B67A009C4D26 /* DefaultImagesListViewModelTests.swift */,
-				426E981E2C26CBCC00B82057 /* DefaultImageDescriptionViewModelTests.swift */,
-				426E98202C26D21600B82057 /* DefaultUserFavoriteImagesViewModelTests.swift */,
-				426E98222C26D39900B82057 /* DefaultImageCollectionViewCellViewModelTests.swift */,
-				426E98242C26DA9200B82057 /* ImagesListBuilderTests.swift */,
-				426E98262C26DCE400B82057 /* ImageDescriptionBuilderTests.swift */,
-				426E98282C26DD6F00B82057 /* UserFavoriteImagesBuilderTests.swift */,
+				426E98332C26F8CD00B82057 /* Unit */,
+				426E982D2C26E0C500B82057 /* Snapshot */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -658,6 +692,7 @@
 				42FE3F8D2C24625D0050A269 /* GetUserFavoriteImagesUseCase */,
 				42FE3F922C2462ED0050A269 /* AddToFavoritesUseCase */,
 				42FE3F952C2463930050A269 /* RemoveFromFavoritesUseCase */,
+				426E98302C26E5CB00B82057 /* ImagesListViewModel */,
 			);
 			path = Stub;
 			sourceTree = "<group>";
@@ -790,6 +825,7 @@
 			packageProductDependencies = (
 				42FE3F762C245B940050A269 /* Factory */,
 				42FE3F7D2C245CB00050A269 /* Moya */,
+				426E982B2C26E04C00B82057 /* SnapshotTesting */,
 			);
 			productName = "GalleryApp-FeaturesTests";
 			productReference = 42FE3F672C245B560050A269 /* GalleryApp-FeaturesTests.xctest */;
@@ -828,6 +864,7 @@
 				42561F172C1DE0F70059A333 /* XCRemoteSwiftPackageReference "Factory" */,
 				42FE3FB42C2475D30050A269 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				42FE3FB72C2475E10050A269 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				426E982A2C26E04C00B82057 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 42561F092C1DE0AB0059A333 /* Products */;
 			projectDirPath = "";
@@ -907,6 +944,7 @@
 			files = (
 				42FE3F7C2C245C5A0050A269 /* StubGalleryFeaturesDataSource.swift in Sources */,
 				4210C1242C25B67A009C4D26 /* DefaultImagesListViewModelTests.swift in Sources */,
+				426E982F2C26E0E900B82057 /* ImagesListViewControllerSnapshotTests.swift in Sources */,
 				42FE3FAD2C2468F80050A269 /* GalleryFeaturesMocks.swift in Sources */,
 				426E98252C26DA9200B82057 /* ImagesListBuilderTests.swift in Sources */,
 				42FE3F9B2C2463B50050A269 /* StubRemoveFromFavoritesUseCase.swift in Sources */,
@@ -920,6 +958,7 @@
 				42FE3F942C2462F60050A269 /* StubAddToFavoritesUseCase.swift in Sources */,
 				42FE3FA62C2466EC0050A269 /* MockCoreDataManager.swift in Sources */,
 				424743132C25AF6600CCED3C /* DefaultGalleryFeaturesDataSourceTests.swift in Sources */,
+				426E98322C26E5F100B82057 /* StubImagesListViewModel.swift in Sources */,
 				42FE3FB32C2474CF0050A269 /* DefaultGetImagesUseCaseTests.swift in Sources */,
 				426E98212C26D21600B82057 /* DefaultUserFavoriteImagesViewModelTests.swift in Sources */,
 				4210C1202C25B3CE009C4D26 /* AddToFavoritesDomainToDTOMapperTests.swift in Sources */,
@@ -928,6 +967,7 @@
 				42FE3F892C24605E0050A269 /* StubGalleryFeaturesRepository.swift in Sources */,
 				42FE3F8C2C2461730050A269 /* StubGetImagesUseCase.swift in Sources */,
 				4210C11E2C25B238009C4D26 /* GetImagesDTOToDomainMapperTests.swift in Sources */,
+				426E98382C26FA7F00B82057 /* ImageCollectionViewCellSnapshotTests.swift in Sources */,
 				42FE3FBB2C24777F0050A269 /* DefaultGetUserFavoriteImagesUseCaseTests.swift in Sources */,
 				42FE3FBD2C247AAD0050A269 /* DefaultAddToFavoritesUseCaseTests.swift in Sources */,
 				426E98272C26DCE400B82057 /* ImageDescriptionBuilderTests.swift in Sources */,
@@ -1239,6 +1279,14 @@
 				minimumVersion = 2.3.2;
 			};
 		};
+		426E982A2C26E04C00B82057 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.16.1;
+			};
+		};
 		42FE3FB42C2475D30050A269 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1272,6 +1320,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42561F172C1DE0F70059A333 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		426E982B2C26E04C00B82057 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 426E982A2C26E04C00B82057 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 		42FE3F762C245B940050A269 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
