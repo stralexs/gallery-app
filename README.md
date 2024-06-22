@@ -2,7 +2,7 @@
 
 ![1](https://github.com/stralexs/gallery-app/assets/123239625/4951ccb4-816f-4b65-bd02-c7b2de92c393)
 
-GalleryApp is an application that utilises Unsplash API’s library of images and provides user-friendly UI for viewing images. Application provides basic data persistence for retrieving list of favorite images.
+Gallery App is an application that utilises Unsplash API’s library of images and provides user-friendly UI for viewing images. Application provides basic data persistence for retrieving list of favorite images.
 
 ## Stack
 - iOS 15
@@ -25,9 +25,9 @@ To install application on your machine clone repository and open GalleryApp.xcwo
 
 ## UI
 
-Application works fine in both portrait and landscape orientation and supports devices of all screen sizes due to adaptive layout. ImagesList and UserFavoriteImages screens are written in UIKit+SnapKit without Storyboard. ImageDescription screen is written in SwiftUI and integrated into UIKit flow using custom UIHostingController.
+Application works fine in both portrait and landscape orientation, handles light and dark appearances and supports devices of all screen sizes due to adaptive layout. ImagesList and UserFavoriteImages screens are written in UIKit+SnapKit without Storyboard. ImageDescription screen is written in SwiftUI and integrated into UIKit flow using custom UIHostingController.
 
-![2](https://github.com/stralexs/gallery-app/assets/123239625/aa3bf272-e354-46df-99b2-06032ef5ff5d)
+![2](https://github.com/stralexs/gallery-app/assets/123239625/07cdab1a-ab50-438d-930b-0c3b5b73e4c0)
 
 ## Architecture
 
