@@ -54,7 +54,11 @@ extension GalleryNavigationController: GalleryNavigationCoordinatorInterface {
 // MARK: - Private
 private extension GalleryNavigationController {
     func setUpNavigationBarAppearance() {
-        navigationBar.tintColor = .black
+        if traitCollection.userInterfaceStyle == .dark {
+            navigationBar.tintColor = .white
+        } else {
+            navigationBar.tintColor = .black
+        }
         navigationBar.prefersLargeTitles = true
     }
 }
