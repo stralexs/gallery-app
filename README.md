@@ -27,7 +27,7 @@ To install application on your machine clone repository and open GalleryApp.xcwo
 
 Application works fine in both portrait and landscape orientation, handles light and dark appearances and supports devices of all screen sizes due to adaptive layout. ImagesList and UserFavoriteImages screens are written in UIKit+SnapKit without Storyboard. ImageDescription screen is written in SwiftUI and integrated into UIKit flow using custom UIHostingController.
 
-![2](https://github.com/stralexs/gallery-app/assets/123239625/07cdab1a-ab50-438d-930b-0c3b5b73e4c0)
+![2](https://github.com/stralexs/gallery-app/assets/123239625/28fdf0ab-100b-4574-a487-e3e13345286b)
 
 ## Architecture
 
